@@ -2,61 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : BaseCounter
 {
 
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    [SerializeField] private Transform counterTopPoint;
-    [SerializeField] private ClearCounter secondClearCounter;
-    [SerializeField] private bool testing;
-    
 
-    private KitchenObject kitchenObject;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
     private void Update() 
     {
-        if(testing && Input.GetKeyDown(KeyCode.T))
+         
+    }
+
+    public override void Interact(Player player)
+    {
+        if(!HasKitchenObject())
         {
-            if(kitchenObject != null)
+            //There is no KitchenObject here
+            if(player.HasKitchenObject())
             {
-                kitchenObject.SetClearCounter(secondClearCounter);
+                //Is carrying something
+                player.GetKitchenObject().SetKitchenObjectParent(this);
             }
-        }    
-    }
-
-    public void Interact()
-    {
-        if(kitchenObject == null)
-        {
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-            kitchenObjectTransform.GetComponent<KitchenObject>().SetClearCounter(this);
+            else
+            {
+                //Player not carrying anything
+            }
         }
-    }
-
-    public Transform GetKitchenObjetFollowTransform()
-    {
-        return counterTopPoint;
-    }
-
-    public void SetKitchenObject(KitchenObject kitchenObject)
-    {
-        this.kitchenObject = kitchenObject;
-    }
-
-    public KitchenObject GetKitchenObject()
-    {
-        return kitchenObject;
-    }
-
-    public void ClearKitchenObject()
-    {
-        kitchenObject = null;
-    }
-
-    public bool HasKitchenObject()
-    {
-        return kitchenObject != null;
+        else
+        {
+            //There is a KitchenObject here
+            if(player.HasKitchenObject())
+            {
+                //Player is carring something
+            }
+            else
+            {
+                //Player is not carrying anything
+                GetKitchenObject().SetKitchenObjectParent(player);
+            }
+        }
     }
 }
