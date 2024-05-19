@@ -6,13 +6,14 @@ public class SelectedCounterVisual : MonoBehaviour
 {
     [SerializeField] private BaseCounter baseCounter;
     [SerializeField] private GameObject[] visualGameObjectArray;
-
+    
     private void Start() 
     {
-        Player.Instance.OnSelectedCounterChanged += Player_OnSelectedCounterChanged;    
+        PlayerOne.Instance.OnSelectedCounterChangedByPlayerOne += PlayerOne_OnSelectedCounterChangedByPlayerOne;
+        PlayerTwo.Instance.OnSelectedCounterChangedByPlayerTwo += PlayerTwo_OnSelectedCounterChangedByPlayerTwo;
     }
 
-    private void Player_OnSelectedCounterChanged (object sender, Player.OnSelectedCounterChangedEventArgs e)
+    private void PlayerOne_OnSelectedCounterChangedByPlayerOne (object sender, PlayerOne.OnSelectedCounterChangedByPlayerOneEventArgs e)
     {
         if(e.selectedCounter == baseCounter)
         {
@@ -20,7 +21,25 @@ public class SelectedCounterVisual : MonoBehaviour
         }
         else
         {
-            Hide();
+            if(!PlayerOne.Instance.isSelecting && !PlayerTwo.Instance.isSelecting)
+            {
+                Hide();
+            }
+        }
+    }
+
+    private void PlayerTwo_OnSelectedCounterChangedByPlayerTwo (object sender, PlayerTwo.OnSelectedCounterChangedByPlayerTwoEventArgs e)
+    {
+        if(e.selectedCounter == baseCounter)
+        {
+            Show();
+        }
+        else
+        {
+            if(!PlayerOne.Instance.isSelecting && !PlayerTwo.Instance.isSelecting)
+            {
+                Hide();
+            }
         }
     }
 

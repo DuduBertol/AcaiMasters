@@ -15,8 +15,9 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
     public event EventHandler OnPauseAction;
-    public event EventHandler OnBindingRebind;
 
+
+    public event EventHandler OnBindingRebind;
 
     public enum Binding
     {
@@ -47,20 +48,34 @@ public class GameInput : MonoBehaviour
             playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
         }
 
+        //PLAYER 1
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
-        playerInputActions.Player.Pause.performed += Pause_performed; 
-    
+        playerInputActions.Player.Pause.performed += Pause_performed;
+
+        //PLAYER 2
+        playerInputActions.Player2.Enable();
+
+        playerInputActions.Player2.Interact.performed += Interact_performed;
+        playerInputActions.Player2.InteractAlternate.performed += InteractAlternate_performed;
+        playerInputActions.Player2.Pause.performed += Pause_performed;
     }
 
     private void OnDestroy() 
     {
+        //PLAYER 1
         playerInputActions.Player.Interact.performed -= Interact_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
         playerInputActions.Player.Pause.performed -= Pause_performed;
 
+        //PLAYER 2
+        playerInputActions.Player2.Interact.performed -= Interact_performed;
+        playerInputActions.Player2.InteractAlternate.performed -= InteractAlternate_performed;
+        playerInputActions.Player2.Pause.performed -= Pause_performed;
+
+        //
         playerInputActions.Dispose();
     }
 
@@ -79,9 +94,17 @@ public class GameInput : MonoBehaviour
         OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
 
-    public Vector2 GetMovementVectorNormalized()
+    public Vector2 GetMovementVectorNormalizedPlayerOne()
     {
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
+
+        inputVector = inputVector.normalized;
+
+        return inputVector;
+    }
+    public Vector2 GetMovementVectorNormalizedPlayerTwo()
+    {
+        Vector2 inputVector = playerInputActions.Player2.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
 
