@@ -82,6 +82,10 @@ public class SoundManager : MonoBehaviour
     {
         PlaySound(audioClipRefsSO.footstep, position, volumeMultiplier * volume);
     }
+    public void PlayDashSound(Vector3 position, float volumeMultiplier)
+    {
+        PlaySound(audioClipRefsSO.dash, position, volumeMultiplier * volume);
+    }
 
     public void PlayCountdownSound()
     {

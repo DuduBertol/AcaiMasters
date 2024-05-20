@@ -55,6 +55,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""33d68adf-ce70-4caa-9d4a-bb4d4a857ea8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""623a69f9-20a7-4def-a111-fe5723be6e6f"",
@@ -64,7 +73,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Move2"",
+                    ""name"": ""Move_2"",
                     ""type"": ""Value"",
                     ""id"": ""fd97ecf3-f4e7-4e06-882e-fea5a29f046d"",
                     ""expectedControlType"": ""Vector2"",
@@ -73,7 +82,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact2"",
+                    ""name"": ""Interact_2"",
                     ""type"": ""Button"",
                     ""id"": ""8ac25d55-bf05-4b40-8c30-291a09a330e0"",
                     ""expectedControlType"": ""Button"",
@@ -82,9 +91,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InteractAlternate2"",
+                    ""name"": ""InteractAlternate_2"",
                     ""type"": ""Button"",
                     ""id"": ""428fc881-1bbf-4284-a15b-e5400074322d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""c57ea5e8-bd0b-49ba-a362-752ebeb23fae"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -187,7 +205,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact2"",
+                    ""action"": ""Interact_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -198,7 +216,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InteractAlternate2"",
+                    ""action"": ""InteractAlternate_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -209,7 +227,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move2"",
+                    ""action"": ""Move_2"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -220,7 +238,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move2"",
+                    ""action"": ""Move_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -231,7 +249,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move2"",
+                    ""action"": ""Move_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -242,7 +260,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move2"",
+                    ""action"": ""Move_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -253,7 +271,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move2"",
+                    ""action"": ""Move_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -300,6 +318,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b0f15ca-1219-4fab-adc5-e48c6e139cfe"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afa80203-f8f7-4b39-adf5-a6f168d94e47"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -311,10 +351,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_InteractAlternate = m_Player.FindAction("InteractAlternate", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_Move2 = m_Player.FindAction("Move2", throwIfNotFound: true);
-        m_Player_Interact2 = m_Player.FindAction("Interact2", throwIfNotFound: true);
-        m_Player_InteractAlternate2 = m_Player.FindAction("InteractAlternate2", throwIfNotFound: true);
+        m_Player_Move_2 = m_Player.FindAction("Move_2", throwIfNotFound: true);
+        m_Player_Interact_2 = m_Player.FindAction("Interact_2", throwIfNotFound: true);
+        m_Player_InteractAlternate_2 = m_Player.FindAction("InteractAlternate_2", throwIfNotFound: true);
+        m_Player_Dash_2 = m_Player.FindAction("Dash_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -379,10 +421,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_InteractAlternate;
+    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_Move2;
-    private readonly InputAction m_Player_Interact2;
-    private readonly InputAction m_Player_InteractAlternate2;
+    private readonly InputAction m_Player_Move_2;
+    private readonly InputAction m_Player_Interact_2;
+    private readonly InputAction m_Player_InteractAlternate_2;
+    private readonly InputAction m_Player_Dash_2;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -390,10 +434,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @InteractAlternate => m_Wrapper.m_Player_InteractAlternate;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @Move2 => m_Wrapper.m_Player_Move2;
-        public InputAction Interact_2 => m_Wrapper.m_Player_Interact2;
-        public InputAction InteractAlternate_2 => m_Wrapper.m_Player_InteractAlternate2;
+        public InputAction @Move_2 => m_Wrapper.m_Player_Move_2;
+        public InputAction @Interact_2 => m_Wrapper.m_Player_Interact_2;
+        public InputAction @InteractAlternate_2 => m_Wrapper.m_Player_InteractAlternate_2;
+        public InputAction @Dash_2 => m_Wrapper.m_Player_Dash_2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -412,18 +458,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractAlternate.started += instance.OnInteractAlternate;
             @InteractAlternate.performed += instance.OnInteractAlternate;
             @InteractAlternate.canceled += instance.OnInteractAlternate;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @Move2.started += instance.OnMove2;
-            @Move2.performed += instance.OnMove2;
-            @Move2.canceled += instance.OnMove2;
-            Interact_2.started += instance.OnInteract2;
-            Interact_2.performed += instance.OnInteract2;
-            Interact_2.canceled += instance.OnInteract2;
-            InteractAlternate_2.started += instance.OnInteractAlternate2;
-            InteractAlternate_2.performed += instance.OnInteractAlternate2;
-            InteractAlternate_2.canceled += instance.OnInteractAlternate2;
+            @Move_2.started += instance.OnMove_2;
+            @Move_2.performed += instance.OnMove_2;
+            @Move_2.canceled += instance.OnMove_2;
+            @Interact_2.started += instance.OnInteract_2;
+            @Interact_2.performed += instance.OnInteract_2;
+            @Interact_2.canceled += instance.OnInteract_2;
+            @InteractAlternate_2.started += instance.OnInteractAlternate_2;
+            @InteractAlternate_2.performed += instance.OnInteractAlternate_2;
+            @InteractAlternate_2.canceled += instance.OnInteractAlternate_2;
+            @Dash_2.started += instance.OnDash_2;
+            @Dash_2.performed += instance.OnDash_2;
+            @Dash_2.canceled += instance.OnDash_2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -437,18 +489,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractAlternate.started -= instance.OnInteractAlternate;
             @InteractAlternate.performed -= instance.OnInteractAlternate;
             @InteractAlternate.canceled -= instance.OnInteractAlternate;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @Move2.started -= instance.OnMove2;
-            @Move2.performed -= instance.OnMove2;
-            @Move2.canceled -= instance.OnMove2;
-            Interact_2.started -= instance.OnInteract2;
-            Interact_2.performed -= instance.OnInteract2;
-            Interact_2.canceled -= instance.OnInteract2;
-            InteractAlternate_2.started -= instance.OnInteractAlternate2;
-            InteractAlternate_2.performed -= instance.OnInteractAlternate2;
-            InteractAlternate_2.canceled -= instance.OnInteractAlternate2;
+            @Move_2.started -= instance.OnMove_2;
+            @Move_2.performed -= instance.OnMove_2;
+            @Move_2.canceled -= instance.OnMove_2;
+            @Interact_2.started -= instance.OnInteract_2;
+            @Interact_2.performed -= instance.OnInteract_2;
+            @Interact_2.canceled -= instance.OnInteract_2;
+            @InteractAlternate_2.started -= instance.OnInteractAlternate_2;
+            @InteractAlternate_2.performed -= instance.OnInteractAlternate_2;
+            @InteractAlternate_2.canceled -= instance.OnInteractAlternate_2;
+            @Dash_2.started -= instance.OnDash_2;
+            @Dash_2.performed -= instance.OnDash_2;
+            @Dash_2.canceled -= instance.OnDash_2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -471,9 +529,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInteractAlternate(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnMove2(InputAction.CallbackContext context);
-        void OnInteract2(InputAction.CallbackContext context);
-        void OnInteractAlternate2(InputAction.CallbackContext context);
+        void OnMove_2(InputAction.CallbackContext context);
+        void OnInteract_2(InputAction.CallbackContext context);
+        void OnInteractAlternate_2(InputAction.CallbackContext context);
+        void OnDash_2(InputAction.CallbackContext context);
     }
 }

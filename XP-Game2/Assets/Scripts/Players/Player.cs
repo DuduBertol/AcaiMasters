@@ -15,13 +15,24 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
 
     public event EventHandler OnPickedSomething;
+    public event EventHandler OnDash;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs: EventArgs
     {
         public BaseCounter selectedCounter;
     }
 
-    [SerializeField] private float moveSpeed = 7f;
+    private enum PlayerState
+    {
+        Normal,
+        Dashing
+    }
+    private PlayerState playerState;
+    
+    [SerializeField] ParticleSystem dashParticles;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float initialMoveSpeed;
+    [SerializeField] private float dashForce;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
@@ -29,8 +40,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private bool isWalking;
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter;
-    
     private KitchenObject kitchenObject;
+    private float dashTimer;
+    [SerializeField] private float dashTimerMax = 0.1f;
+    private float dashCooldown;
+    [SerializeField] private float dashCooldownMax = 0.5f;
+    private bool canDash = true;
 
     private void Awake() 
     {
@@ -38,7 +53,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             UnityEngine.Debug.Log("There is more than one Player instance");
         }
+        
         Instance = this;    
+
+        initialMoveSpeed = moveSpeed;
     }
 
 
@@ -46,6 +64,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        gameInput.OnDashAction += GameInput_OnDashAction;
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
@@ -67,16 +86,55 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             selectedCounter.Interact(this);
         }
     }
+    private void GameInput_OnDashAction(object sender, System.EventArgs e)
+    {
+        if(!KitchenGameManager.Instance.IsGamePlaying()) return;
+        
+        if(canDash)
+        {
+            playerState = PlayerState.Dashing;
+            OnDash?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     private void Update()
     {
         HandleMovement();
         HandleInteraction();
+        Dashing();
     }
 
     public bool IsWalking()
     {
         return isWalking;
+    }
+    private void Dashing()
+    {
+        switch(playerState)
+        {
+            case PlayerState.Normal:
+                if(!canDash)
+                {
+                    dashCooldown += Time.deltaTime;
+                }
+                if(dashCooldown >= dashCooldownMax)
+                {
+                    dashCooldown = 0f;
+                    canDash = true;
+                }
+                break;
+            case PlayerState.Dashing:    
+                canDash = false;
+                dashTimer += Time.deltaTime;
+                moveSpeed = dashForce;
+                if(dashTimer >= dashTimerMax)
+                {
+                    playerState = PlayerState.Normal;
+                    moveSpeed = initialMoveSpeed;
+                    dashTimer = 0f;
+                }
+               break;
+        }
     }
 
     private void HandleInteraction()

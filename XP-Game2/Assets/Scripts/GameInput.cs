@@ -14,8 +14,10 @@ public class GameInput : MonoBehaviour
 
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
+    public event EventHandler OnDashAction;
     public event EventHandler OnInteractAction_2;
     public event EventHandler OnInteractAlternateAction_2;
+    public event EventHandler OnDashAction_2;
     public event EventHandler OnPauseAction;
     public event EventHandler OnBindingRebind;
 
@@ -53,10 +55,12 @@ public class GameInput : MonoBehaviour
 
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
+        playerInputActions.Player.Dash.performed += Dash_performed;
         playerInputActions.Player.Pause.performed += Pause_performed;
 
         playerInputActions.Player.Interact_2.performed += Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed += InteractAlternate_performed_2;
+        playerInputActions.Player.Dash_2.performed += Dash_performed_2;
     
     }
 
@@ -64,10 +68,12 @@ public class GameInput : MonoBehaviour
     {
         playerInputActions.Player.Interact.performed -= Interact_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
+        playerInputActions.Player.Dash.performed -= Dash_performed;
         playerInputActions.Player.Pause.performed -= Pause_performed;
 
         playerInputActions.Player.Interact_2.performed -= Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed -= InteractAlternate_performed_2;
+        playerInputActions.Player.Dash_2.performed -= Dash_performed_2;
 
         playerInputActions.Dispose();
     }
@@ -86,6 +92,12 @@ public class GameInput : MonoBehaviour
     {
         OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
+
+    private void Dash_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnDashAction?.Invoke(this, EventArgs.Empty);
+    }
+
     private void InteractAlternate_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnInteractAlternateAction_2?.Invoke(this, EventArgs.Empty);
@@ -94,6 +106,11 @@ public class GameInput : MonoBehaviour
     private void Interact_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnInteractAction_2?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Dash_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnDashAction_2?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalizedPlayerOne()
@@ -106,7 +123,7 @@ public class GameInput : MonoBehaviour
     }
     public Vector2 GetMovementVectorNormalizedPlayerTwo()
     {
-        Vector2 inputVector = playerInputActions.Player.Move2.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputActions.Player.Move_2.ReadValue<Vector2>();
  
         inputVector = inputVector.normalized;
 

@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "33d68adf-ce70-4caa-9d4a-bb4d4a857ea8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "623a69f9-20a7-4def-a111-fe5723be6e6f",
@@ -42,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move2",
+                    "name": "Move_2",
                     "type": "Value",
                     "id": "fd97ecf3-f4e7-4e06-882e-fea5a29f046d",
                     "expectedControlType": "Vector2",
@@ -51,7 +60,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact2",
+                    "name": "Interact_2",
                     "type": "Button",
                     "id": "8ac25d55-bf05-4b40-8c30-291a09a330e0",
                     "expectedControlType": "Button",
@@ -60,9 +69,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InteractAlternate2",
+                    "name": "InteractAlternate_2",
                     "type": "Button",
                     "id": "428fc881-1bbf-4284-a15b-e5400074322d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash_2",
+                    "type": "Button",
+                    "id": "c57ea5e8-bd0b-49ba-a362-752ebeb23fae",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -165,7 +183,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact2",
+                    "action": "Interact_2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -176,7 +194,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractAlternate2",
+                    "action": "InteractAlternate_2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -187,7 +205,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move2",
+                    "action": "Move_2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -198,7 +216,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move2",
+                    "action": "Move_2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -209,7 +227,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move2",
+                    "action": "Move_2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -220,7 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move2",
+                    "action": "Move_2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -231,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move2",
+                    "action": "Move_2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -276,6 +294,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b0f15ca-1219-4fab-adc5-e48c6e139cfe",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afa80203-f8f7-4b39-adf5-a6f168d94e47",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

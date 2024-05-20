@@ -14,6 +14,11 @@ public class PlayerTwoSounds : MonoBehaviour
         playerTwo = GetComponent<PlayerTwo>();
     }
 
+    private void Start() 
+    {   
+        PlayerTwo.Instance.OnDash += PlayerTwo_OnDash;     
+    }
+
     private void Update() 
     {
         footStepTimer -= Time.deltaTime;
@@ -28,5 +33,14 @@ public class PlayerTwoSounds : MonoBehaviour
             }
             
         }    
+    }
+    
+    private void PlayerTwo_OnDash(object sender, System.EventArgs e)
+    {
+        if(playerTwo.IsWalking())
+        {
+            float volume = 1f;
+            SoundManager.Instance.PlayDashSound(playerTwo.transform.position, volume);
+        }
     }
 }
