@@ -47,4 +47,20 @@ public class PlatesCounter : BaseCounter
             }
         }
     }
+
+    public override void Interact_2(PlayerTwo playerTwo)
+    {
+        if(!playerTwo.HasKitchenObject())
+        {
+            //Player is empty handed
+            if(platesSpawnedAmount > 0)
+            {
+                //There's at least one plate here
+                platesSpawnedAmount--;
+                KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, playerTwo);
+
+                OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
 }

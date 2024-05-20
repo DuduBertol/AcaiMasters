@@ -65,4 +65,53 @@ public class ClearCounter : BaseCounter
             }
         }
     }
+    public override void Interact_2(PlayerTwo playerTwo)
+    {
+        if(!HasKitchenObject())
+        {
+            //There is no KitchenObject here
+            if(playerTwo.HasKitchenObject())
+            {
+                //Is carrying something
+                playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
+            }
+            else
+            {
+                //Player not carrying anything
+            }
+        }
+        else
+        {
+            //There is a KitchenObject here
+            if(playerTwo.HasKitchenObject())
+            {
+                //Player is carring something
+                if(playerTwo.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    //Player is holding a plate
+                    if(plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
+                else
+                    {
+                        //Player is not carrying Plate but something else
+                        if(GetKitchenObject().TryGetPlate(out plateKitchenObject))
+                        {
+                            //Counter is holding a plate
+                            if(plateKitchenObject.TryAddIngredient(playerTwo.GetKitchenObject().GetKitchenObjectSO()))
+                            {
+                                playerTwo.GetKitchenObject().DestroySelf();
+                            }
+                        }
+                    }
+            }
+            else
+            {
+                //Player is not carrying anything
+                GetKitchenObject().SetKitchenObjectParent(playerTwo);
+            }
+        }
+    }
 }
