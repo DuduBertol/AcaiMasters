@@ -15,7 +15,7 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
 
 
     public event EventHandler OnPickedSomething;
-    public event EventHandler OnDash;
+    public event EventHandler OnDash_2;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs: EventArgs
     {
@@ -93,7 +93,7 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
         if(canDash)
         {
             playerState = PlayerState.Dashing;
-            OnDash?.Invoke(this, EventArgs.Empty);
+            OnDash_2?.Invoke(this, EventArgs.Empty);
         }
     }
 

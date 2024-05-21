@@ -29,7 +29,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     }
     private PlayerState playerState;
     
-    [SerializeField] ParticleSystem dashParticles;
+    
     [SerializeField] private float moveSpeed;
     [SerializeField] private float initialMoveSpeed;
     [SerializeField] private float dashForce;

@@ -16,7 +16,7 @@ public class PlayerTwoAnimator : MonoBehaviour
 
     private void Start() 
     {
-        PlayerTwo.Instance.OnDash += PlayerTwo_OnDash;
+        PlayerTwo.Instance.OnDash_2 += PlayerTwo_OnDash_2;
     }
 
     private void Update() 
@@ -24,9 +24,8 @@ public class PlayerTwoAnimator : MonoBehaviour
         animator.SetBool(IS_WALKING, PlayerTwo.Instance.IsWalking());
     }
 
-    private void PlayerTwo_OnDash(object sender, System.EventArgs e)
+    private void PlayerTwo_OnDash_2(object sender, System.EventArgs e)
     {
-        
         dashParticles.Play();
     }
 }

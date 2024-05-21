@@ -16,7 +16,7 @@ public class PlayerTwoSounds : MonoBehaviour
 
     private void Start() 
     {   
-        PlayerTwo.Instance.OnDash += PlayerTwo_OnDash;     
+        PlayerTwo.Instance.OnDash_2 += PlayerTwo_OnDash_2;     
     }
 
     private void Update() 
@@ -35,7 +35,7 @@ public class PlayerTwoSounds : MonoBehaviour
         }    
     }
     
-    private void PlayerTwo_OnDash(object sender, System.EventArgs e)
+    private void PlayerTwo_OnDash_2(object sender, System.EventArgs e)
     {
         if(playerTwo.IsWalking())
         {
