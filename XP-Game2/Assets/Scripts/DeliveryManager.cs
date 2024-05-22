@@ -13,7 +13,15 @@ public class DeliveryManager : MonoBehaviour
 
     public static DeliveryManager Instance { get; private set; }
 
+    public List<float> recipeLifeTimerList;
+    
+    public List<Transform> recipeLifeTimerBarList;
+    public float recipeLifeTimerMax = 24f;
+
+
     [SerializeField] private RecipeListSO recipeListSO;
+    
+    [SerializeField] private Transform recipeLifeTimerBarTemplate;
     private List<RecipeSO> waitingRecipeSOList;
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
@@ -24,7 +32,8 @@ public class DeliveryManager : MonoBehaviour
     {
         Instance = this;
 
-        waitingRecipeSOList = new List<RecipeSO>();    
+        waitingRecipeSOList = new List<RecipeSO>();
+        recipeLifeTimerList = new List<float>();
     }
     
     private void Update() {
@@ -39,9 +48,14 @@ public class DeliveryManager : MonoBehaviour
 
                 waitingRecipeSOList.Add(waitingRecipeSO);
 
+                recipeLifeTimerList.Add(recipeLifeTimerMax);
+                
+
                 OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
+
+        RecipeLifeTimerCountdown();
     }
 
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
@@ -81,6 +95,8 @@ public class DeliveryManager : MonoBehaviour
                     successfulRecipesAmount++;
 
                     waitingRecipeSOList.RemoveAt(i);
+                    recipeLifeTimerList.RemoveAt(i);
+                    recipeLifeTimerBarList.RemoveAt(i);
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
@@ -102,4 +118,23 @@ public class DeliveryManager : MonoBehaviour
     {
         return successfulRecipesAmount;
     }
+
+    private void RecipeLifeTimerCountdown()
+    {
+        for (int i = 0; i < recipeLifeTimerList.Count; i++)
+        {
+            recipeLifeTimerList[i] -= Time.deltaTime;
+
+            if(recipeLifeTimerList[i] <= 0f)
+            {
+                OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+                waitingRecipeSOList.RemoveAt(i);
+                recipeLifeTimerList.RemoveAt(i);
+                recipeLifeTimerBarList.RemoveAt(i);
+            }
+
+        }
+    }
+
+    
 }
