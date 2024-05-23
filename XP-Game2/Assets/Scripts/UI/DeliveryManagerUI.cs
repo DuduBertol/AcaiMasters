@@ -57,12 +57,27 @@ public class DeliveryManagerUI : MonoBehaviour
         {   
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);
+            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
 
             Transform recipeLifeTimerBar = Instantiate(recipeLifeTimerBarTemplate, recipeLifeTimerBarContainer);
             DeliveryManager.Instance.recipeLifeTimerBarList.Add(recipeLifeTimerBar);
             recipeLifeTimerBar.gameObject.SetActive(true);
 
-            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
+            /* foreach(Transform child in recipeLifeTimerBarContainer)
+            {
+                if(child == recipeLifeTimerBarTemplate) continue;
+                {
+                    DeliveryManager.Instance.recipeLifeTimerBarList.Add(child);
+                }
+            } */
+            
+            /* for(int i = 0; i < DeliveryManager.Instance.recipeLifeTimerBarList.Count; i++)
+            {
+                if(DeliveryManager.Instance.recipeLifeTimerBarList[i] == null)
+                {
+                    DeliveryManager.Instance.recipeLifeTimerBarList.RemoveAt(i);
+                }
+            } */
         }
 
     }
