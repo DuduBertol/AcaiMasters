@@ -37,6 +37,11 @@ public class DeliveryManagerUI : MonoBehaviour
         UpdateVisual();
     }
 
+    private void Update() 
+    {
+        UpdateTimer();   
+    }
+
 
     private void UpdateVisual()
     {
@@ -49,67 +54,48 @@ public class DeliveryManagerUI : MonoBehaviour
         {
             if(child == recipeLifeTimerBarTemplate) continue;
             {
+                DeliveryManager.Instance.recipeLifeTimerBarList.Remove(child);
                 Destroy(child.gameObject);
             }
         }
 
         foreach (RecipeSO recipeSO in DeliveryManager.Instance.GetWaitingRecipeSOList())
         {   
+            //Recipe
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);
             recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
 
+            //Timer
             Transform recipeLifeTimerBar = Instantiate(recipeLifeTimerBarTemplate, recipeLifeTimerBarContainer);
             DeliveryManager.Instance.recipeLifeTimerBarList.Add(recipeLifeTimerBar);
             recipeLifeTimerBar.gameObject.SetActive(true);
-
-            /* foreach(Transform child in recipeLifeTimerBarContainer)
-            {
-                if(child == recipeLifeTimerBarTemplate) continue;
-                {
-                    DeliveryManager.Instance.recipeLifeTimerBarList.Add(child);
-                }
-            } */
-            
-            /* for(int i = 0; i < DeliveryManager.Instance.recipeLifeTimerBarList.Count; i++)
-            {
-                if(DeliveryManager.Instance.recipeLifeTimerBarList[i] == null)
-                {
-                    DeliveryManager.Instance.recipeLifeTimerBarList.RemoveAt(i);
-                }
-            } */
         }
 
     }
 
-    
-
-
-    private void Update() 
+    private void UpdateTimer()
     {
         for (int i = 0; i < DeliveryManager.Instance.recipeLifeTimerBarList.Count; i++)
         {
-            Transform recipeLifeTimerBar = DeliveryManager.Instance.recipeLifeTimerBarList[i];
-            float recipeLifeTimer = DeliveryManager.Instance.recipeLifeTimerList[i];
             float recipeLifeTimerMax = DeliveryManager.Instance.recipeLifeTimerMax;
             
+            DeliveryManager.Instance.recipeLifeTimerBarList[i].gameObject.GetComponent<Image>().fillAmount = DeliveryManager.Instance.recipeLifeTimerList[i] / recipeLifeTimerMax;
 
-            recipeLifeTimerBar.gameObject.GetComponent<Image>().fillAmount = recipeLifeTimer / recipeLifeTimerMax;
-
-            if(recipeLifeTimer <= recipeLifeTimerMax) //100%
+            if(DeliveryManager.Instance.recipeLifeTimerList[i] <= recipeLifeTimerMax) //100%
                 {
-                    if(recipeLifeTimer <= recipeLifeTimerMax * 2/3) //66%
+                    if(DeliveryManager.Instance.recipeLifeTimerList[i] <= recipeLifeTimerMax * 2/3) //66%
                     {
-                        if(recipeLifeTimer <= recipeLifeTimerMax * 1/3) //33%
+                        if(DeliveryManager.Instance.recipeLifeTimerList[i] <= recipeLifeTimerMax * 1/3) //33%
                         {
-                            recipeLifeTimerBar.GetComponent<Image>().color = red;
-                            return;
+                            DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = red;
+                            continue;
                         }
-                        recipeLifeTimerBar.GetComponent<Image>().color = yellow;
-                        return;
+                        DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = yellow;
+                        continue;
                     }
-                    recipeLifeTimerBar.GetComponent<Image>().color = green;
-                    return;
+                    DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = green;
+                    continue;
                 }
         }
     }

@@ -20241,7 +20241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeLifeTimerList: []
   recipeLifeTimerBarList: []
-  recipeLifeTimerMax: 24
+  recipeLifeTimerMax: 20
   recipeListSO: {fileID: 11400000, guid: 74e01007698a672448c2dccf4eb7fbad, type: 2}
   recipeLifeTimerBarTemplate: {fileID: 764944380}
 --- !u!4 &1756757857
@@ -22185,6 +22185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f911c936419a4d4981318b49fae23d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePlayingTimerMax: 300
 --- !u!4 &1959075565
 Transform:
   m_ObjectHideFlags: 0
