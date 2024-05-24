@@ -140,6 +140,8 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteraction()
     {
+        if(!KitchenGameManager.Instance.IsGamePlaying()) return;
+
         Vector2 inputVector = gameInput.GetMovementVectorNormalizedPlayerTwo();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -173,6 +175,8 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
+        if(!KitchenGameManager.Instance.IsGamePlaying()) return;
+
         Vector2 inputVector = gameInput.GetMovementVectorNormalizedPlayerTwo();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);

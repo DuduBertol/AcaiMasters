@@ -64,6 +64,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SumSkinSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c19386a-9047-45ea-9a14-5eac4c50b45f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SubSkinSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""65a62afd-b0e6-4ba0-b335-a883242539a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""623a69f9-20a7-4def-a111-fe5723be6e6f"",
@@ -103,6 +121,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Dash_2"",
                     ""type"": ""Button"",
                     ""id"": ""c57ea5e8-bd0b-49ba-a362-752ebeb23fae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SumSkinSelect_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1b28090-3b95-4174-9d18-b941a4c64e86"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SubSkinSelect_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""118c38f6-f497-43f4-a689-8ae19669097a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -340,6 +376,72 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55a7ab9b-ec23-4dc5-999f-1ec30c7ca556"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubSkinSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36d8be35-f064-49cb-9c5e-2f056871e1cf"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubSkinSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f89dc7be-8bf6-4c28-9736-c52c59182580"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubSkinSelect_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28f86d74-61d0-482c-a242-53376bd4c278"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SumSkinSelect_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d013a78-db1d-487b-881a-5948f3b5ecf3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SumSkinSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26c66b26-256b-4c37-a0a4-585acbdf6a67"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SumSkinSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -352,11 +454,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_InteractAlternate = m_Player.FindAction("InteractAlternate", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_SumSkinSelect = m_Player.FindAction("SumSkinSelect", throwIfNotFound: true);
+        m_Player_SubSkinSelect = m_Player.FindAction("SubSkinSelect", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Move_2 = m_Player.FindAction("Move_2", throwIfNotFound: true);
         m_Player_Interact_2 = m_Player.FindAction("Interact_2", throwIfNotFound: true);
         m_Player_InteractAlternate_2 = m_Player.FindAction("InteractAlternate_2", throwIfNotFound: true);
         m_Player_Dash_2 = m_Player.FindAction("Dash_2", throwIfNotFound: true);
+        m_Player_SumSkinSelect_2 = m_Player.FindAction("SumSkinSelect_2", throwIfNotFound: true);
+        m_Player_SubSkinSelect_2 = m_Player.FindAction("SubSkinSelect_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -422,11 +528,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_InteractAlternate;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_SumSkinSelect;
+    private readonly InputAction m_Player_SubSkinSelect;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Move_2;
     private readonly InputAction m_Player_Interact_2;
     private readonly InputAction m_Player_InteractAlternate_2;
     private readonly InputAction m_Player_Dash_2;
+    private readonly InputAction m_Player_SumSkinSelect_2;
+    private readonly InputAction m_Player_SubSkinSelect_2;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -435,11 +545,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @InteractAlternate => m_Wrapper.m_Player_InteractAlternate;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @SumSkinSelect => m_Wrapper.m_Player_SumSkinSelect;
+        public InputAction @SubSkinSelect => m_Wrapper.m_Player_SubSkinSelect;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Move_2 => m_Wrapper.m_Player_Move_2;
         public InputAction @Interact_2 => m_Wrapper.m_Player_Interact_2;
         public InputAction @InteractAlternate_2 => m_Wrapper.m_Player_InteractAlternate_2;
         public InputAction @Dash_2 => m_Wrapper.m_Player_Dash_2;
+        public InputAction @SumSkinSelect_2 => m_Wrapper.m_Player_SumSkinSelect_2;
+        public InputAction @SubSkinSelect_2 => m_Wrapper.m_Player_SubSkinSelect_2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -461,6 +575,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @SumSkinSelect.started += instance.OnSumSkinSelect;
+            @SumSkinSelect.performed += instance.OnSumSkinSelect;
+            @SumSkinSelect.canceled += instance.OnSumSkinSelect;
+            @SubSkinSelect.started += instance.OnSubSkinSelect;
+            @SubSkinSelect.performed += instance.OnSubSkinSelect;
+            @SubSkinSelect.canceled += instance.OnSubSkinSelect;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -476,6 +596,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash_2.started += instance.OnDash_2;
             @Dash_2.performed += instance.OnDash_2;
             @Dash_2.canceled += instance.OnDash_2;
+            @SumSkinSelect_2.started += instance.OnSumSkinSelect_2;
+            @SumSkinSelect_2.performed += instance.OnSumSkinSelect_2;
+            @SumSkinSelect_2.canceled += instance.OnSumSkinSelect_2;
+            @SubSkinSelect_2.started += instance.OnSubSkinSelect_2;
+            @SubSkinSelect_2.performed += instance.OnSubSkinSelect_2;
+            @SubSkinSelect_2.canceled += instance.OnSubSkinSelect_2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -492,6 +618,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @SumSkinSelect.started -= instance.OnSumSkinSelect;
+            @SumSkinSelect.performed -= instance.OnSumSkinSelect;
+            @SumSkinSelect.canceled -= instance.OnSumSkinSelect;
+            @SubSkinSelect.started -= instance.OnSubSkinSelect;
+            @SubSkinSelect.performed -= instance.OnSubSkinSelect;
+            @SubSkinSelect.canceled -= instance.OnSubSkinSelect;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -507,6 +639,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash_2.started -= instance.OnDash_2;
             @Dash_2.performed -= instance.OnDash_2;
             @Dash_2.canceled -= instance.OnDash_2;
+            @SumSkinSelect_2.started -= instance.OnSumSkinSelect_2;
+            @SumSkinSelect_2.performed -= instance.OnSumSkinSelect_2;
+            @SumSkinSelect_2.canceled -= instance.OnSumSkinSelect_2;
+            @SubSkinSelect_2.started -= instance.OnSubSkinSelect_2;
+            @SubSkinSelect_2.performed -= instance.OnSubSkinSelect_2;
+            @SubSkinSelect_2.canceled -= instance.OnSubSkinSelect_2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -530,10 +668,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInteractAlternate(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnSumSkinSelect(InputAction.CallbackContext context);
+        void OnSubSkinSelect(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnMove_2(InputAction.CallbackContext context);
         void OnInteract_2(InputAction.CallbackContext context);
         void OnInteractAlternate_2(InputAction.CallbackContext context);
         void OnDash_2(InputAction.CallbackContext context);
+        void OnSumSkinSelect_2(InputAction.CallbackContext context);
+        void OnSubSkinSelect_2(InputAction.CallbackContext context);
     }
 }

@@ -42,6 +42,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SumSkinSelect",
+                    "type": "Button",
+                    "id": "7c19386a-9047-45ea-9a14-5eac4c50b45f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SubSkinSelect",
+                    "type": "Button",
+                    "id": "65a62afd-b0e6-4ba0-b335-a883242539a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "623a69f9-20a7-4def-a111-fe5723be6e6f",
@@ -81,6 +99,24 @@
                     "name": "Dash_2",
                     "type": "Button",
                     "id": "c57ea5e8-bd0b-49ba-a362-752ebeb23fae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SumSkinSelect_2",
+                    "type": "Button",
+                    "id": "e1b28090-3b95-4174-9d18-b941a4c64e86",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SubSkinSelect_2",
+                    "type": "Button",
+                    "id": "118c38f6-f497-43f4-a689-8ae19669097a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -316,6 +352,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55a7ab9b-ec23-4dc5-999f-1ec30c7ca556",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubSkinSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36d8be35-f064-49cb-9c5e-2f056871e1cf",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubSkinSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f89dc7be-8bf6-4c28-9736-c52c59182580",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubSkinSelect_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28f86d74-61d0-482c-a242-53376bd4c278",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SumSkinSelect_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d013a78-db1d-487b-881a-5948f3b5ecf3",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SumSkinSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26c66b26-256b-4c37-a0a4-585acbdf6a67",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SumSkinSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

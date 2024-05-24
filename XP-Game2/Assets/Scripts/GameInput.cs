@@ -20,6 +20,10 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnDashAction_2;
     public event EventHandler OnPauseAction;
     public event EventHandler OnBindingRebind;
+    public event EventHandler OnSubSkinSelectAction;
+    public event EventHandler OnSumSkinSelectAction;
+    public event EventHandler OnSubSkinSelectAction_2;
+    public event EventHandler OnSumSkinSelectAction_2;
 
 
     public enum Binding
@@ -56,11 +60,16 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Dash.performed += Dash_performed;
+        playerInputActions.Player.SumSkinSelect.performed += SumSkinSelect_performed;
+        playerInputActions.Player.SubSkinSelect.performed += SubSkinSelect_performed;
+
         playerInputActions.Player.Pause.performed += Pause_performed;
 
         playerInputActions.Player.Interact_2.performed += Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed += InteractAlternate_performed_2;
         playerInputActions.Player.Dash_2.performed += Dash_performed_2;
+        playerInputActions.Player.SumSkinSelect_2.performed += SumSkinSelect_performed_2;
+        playerInputActions.Player.SubSkinSelect_2.performed += SubSkinSelect_performed_2;
     
     }
 
@@ -69,11 +78,16 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact.performed -= Interact_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
         playerInputActions.Player.Dash.performed -= Dash_performed;
+        playerInputActions.Player.SumSkinSelect.performed -= SumSkinSelect_performed;
+        playerInputActions.Player.SubSkinSelect.performed -= SubSkinSelect_performed;
+
         playerInputActions.Player.Pause.performed -= Pause_performed;
 
         playerInputActions.Player.Interact_2.performed -= Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed -= InteractAlternate_performed_2;
         playerInputActions.Player.Dash_2.performed -= Dash_performed_2;
+        playerInputActions.Player.SumSkinSelect_2.performed -= SumSkinSelect_performed_2;
+        playerInputActions.Player.SubSkinSelect_2.performed -= SubSkinSelect_performed_2;
 
         playerInputActions.Dispose();
     }
@@ -81,6 +95,18 @@ public class GameInput : MonoBehaviour
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void Dash_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnDashAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void SumSkinSelect_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnSumSkinSelectAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void SubSkinSelect_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnSubSkinSelectAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -93,9 +119,18 @@ public class GameInput : MonoBehaviour
         OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
 
-    private void Dash_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void SumSkinSelect_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnDashAction?.Invoke(this, EventArgs.Empty);
+        OnSumSkinSelectAction_2?.Invoke(this, EventArgs.Empty);
+    }
+    private void SubSkinSelect_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnSubSkinSelectAction_2?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Dash_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnDashAction_2?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAlternate_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -106,11 +141,6 @@ public class GameInput : MonoBehaviour
     private void Interact_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnInteractAction_2?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Dash_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        OnDashAction_2?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalizedPlayerOne()
