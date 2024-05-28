@@ -19,25 +19,39 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAlternateAction_2;
     public event EventHandler OnDashAction_2;
     public event EventHandler OnPauseAction;
-    public event EventHandler OnBindingRebind;
     public event EventHandler OnSubSkinSelectAction;
     public event EventHandler OnSumSkinSelectAction;
     public event EventHandler OnSubSkinSelectAction_2;
     public event EventHandler OnSumSkinSelectAction_2;
+    
+    public event EventHandler OnBindingRebind;
 
 
     public enum Binding
     {
-        Move_Up,
-        Move_Down,
-        Move_Left,
-        Move_Right,
-        Interact,
-        InteractAlternate,
-        Pause,
-        Gamepad_Interact,
-        Gamepad_InteractAlternate,
-        Gamepad_Pause
+        //Player 1
+        Move_Up_1,
+        Move_Down_1,
+        Move_Left_1,
+        Move_Right_1,
+        Interact_1,
+        InteractAlternate_1,
+        Dash_1,
+        Pause_1,
+        Gamepad_Interact_1,
+        Gamepad_InteractAlternate_1,
+        Gamepad_Pause_1,
+        Gamepad_Dash_1,
+
+        //Player 2
+        Move_Up_2,
+        Move_Down_2,
+        Move_Left_2,
+        Move_Right_2,
+        Interact_2,
+        InteractAlternate_2,
+        Dash_2,
+        Pause_2,
     }
 
 
@@ -165,28 +179,49 @@ public class GameInput : MonoBehaviour
         switch (binding)
         {
             default:
-            case Binding.Move_Up:
+            //Player 1
+            case Binding.Move_Up_1:
                 return playerInputActions.Player.Move.bindings[1].ToDisplayString();
-            case Binding.Move_Down:
+            case Binding.Move_Down_1:
                 return playerInputActions.Player.Move.bindings[2].ToDisplayString();
-            case Binding.Move_Left:
+            case Binding.Move_Left_1:
                 return playerInputActions.Player.Move.bindings[3].ToDisplayString();
-            case Binding.Move_Right:
+            case Binding.Move_Right_1:
                 return playerInputActions.Player.Move.bindings[4].ToDisplayString(); 
-            case Binding.Interact:
+            case Binding.Interact_1:
                 return playerInputActions.Player.Interact.bindings[0].ToDisplayString();
-            case Binding.InteractAlternate:
+            case Binding.InteractAlternate_1:
                 return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
-            case Binding.Pause:
+            case Binding.Dash_1:
+                return playerInputActions.Player.Dash.bindings[0].ToDisplayString();
+            case Binding.Pause_1:
                 return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
-            case Binding.Gamepad_Interact:
+            case Binding.Gamepad_Interact_1:
                 return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
-            case Binding.Gamepad_InteractAlternate:
+            case Binding.Gamepad_InteractAlternate_1:
                 return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
-            case Binding.Gamepad_Pause:
+            case Binding.Gamepad_Dash_1:
+                return playerInputActions.Player.Dash.bindings[1].ToDisplayString();
+            case Binding.Gamepad_Pause_1:
                 return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
-            
-                
+
+            //Player 2
+            case Binding.Move_Up_2:
+                return playerInputActions.Player.Move_2.bindings[1].ToDisplayString();
+            case Binding.Move_Down_2:
+                return playerInputActions.Player.Move_2.bindings[2].ToDisplayString();
+            case Binding.Move_Left_2:
+                return playerInputActions.Player.Move_2.bindings[3].ToDisplayString();
+            case Binding.Move_Right_2:
+                return playerInputActions.Player.Move_2.bindings[4].ToDisplayString(); 
+            case Binding.Interact_2:
+                return playerInputActions.Player.Interact_2.bindings[0].ToDisplayString();
+            case Binding.InteractAlternate_2:
+                return playerInputActions.Player.InteractAlternate_2.bindings[0].ToDisplayString();
+            case Binding.Dash_2:
+                return playerInputActions.Player.Dash_2.bindings[0].ToDisplayString();
+            case Binding.Pause_2:
+                return playerInputActions.Player.Pause_2.bindings[0].ToDisplayString();
         }
     }
 
@@ -200,45 +235,88 @@ public class GameInput : MonoBehaviour
         switch (binding)
         {
             default:
-            case Binding.Move_Up:
+            //Player 1
+            case Binding.Move_Up_1:
                 inputAction = playerInputActions.Player.Move;
                 bindingIndex = 1;
                 break;
-            case Binding.Move_Down:
+            case Binding.Move_Down_1:
                 inputAction = playerInputActions.Player.Move;
                 bindingIndex = 2;
                 break;
-            case Binding.Move_Left:
+            case Binding.Move_Left_1:
                 inputAction = playerInputActions.Player.Move;
                 bindingIndex = 3;
                 break;
-            case Binding.Move_Right:
+            case Binding.Move_Right_1:
                 inputAction = playerInputActions.Player.Move;
                 bindingIndex = 4;
                 break;
-            case Binding.Interact:
+            case Binding.Interact_1:
                 inputAction = playerInputActions.Player.Interact;
                 bindingIndex = 0;
                 break;
-            case Binding.InteractAlternate:
+            case Binding.InteractAlternate_1:
                 inputAction = playerInputActions.Player.InteractAlternate;
                 bindingIndex = 0;
                 break;
-            case Binding.Pause:
+            case Binding.Dash_1:
+                inputAction = playerInputActions.Player.Dash;
+                bindingIndex = 0;
+                break;
+            case Binding.Pause_1:
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 0;
                 break;
-            case Binding.Gamepad_Interact:
+            case Binding.Gamepad_Interact_1:
                 inputAction = playerInputActions.Player.Interact;
                 bindingIndex = 1;
                 break;
-            case Binding.Gamepad_InteractAlternate:
+            case Binding.Gamepad_InteractAlternate_1:
                 inputAction = playerInputActions.Player.InteractAlternate;
                 bindingIndex = 1;
                 break;
-            case Binding.Gamepad_Pause:
+            case Binding.Gamepad_Dash_1:
+                inputAction = playerInputActions.Player.Dash;
+                bindingIndex = 1;
+                break;
+            case Binding.Gamepad_Pause_1:
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 1;
+                break;
+
+            //Player 2
+            case Binding.Move_Up_2:
+                inputAction = playerInputActions.Player.Move_2;
+                bindingIndex = 1;
+                break;
+            case Binding.Move_Down_2:
+                inputAction = playerInputActions.Player.Move_2;
+                bindingIndex = 2;
+                break;
+            case Binding.Move_Left_2:
+                inputAction = playerInputActions.Player.Move_2;
+                bindingIndex = 3;
+                break;
+            case Binding.Move_Right_2:
+                inputAction = playerInputActions.Player.Move_2;
+                bindingIndex = 4;
+                break;
+            case Binding.Interact_2:
+                inputAction = playerInputActions.Player.Interact_2;
+                bindingIndex = 0;
+                break;
+            case Binding.InteractAlternate_2:
+                inputAction = playerInputActions.Player.InteractAlternate_2;
+                bindingIndex = 0;
+                break;
+            case Binding.Dash_2:
+                inputAction = playerInputActions.Player.Dash_2;
+                bindingIndex = 0;
+                break;
+            case Binding.Pause_2:
+                inputAction = playerInputActions.Player.Pause_2;
+                bindingIndex = 0;
                 break;
         }
 

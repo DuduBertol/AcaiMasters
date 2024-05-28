@@ -127,6 +127,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Pause_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""48d72a0e-27a7-4b87-8bdf-9869d6f3eb43"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""SumSkinSelect_2"",
                     ""type"": ""Button"",
                     ""id"": ""e1b28090-3b95-4174-9d18-b941a4c64e86"",
@@ -379,6 +388,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""082ff61e-0728-4473-b0a9-c9529e72f856"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""55a7ab9b-ec23-4dc5-999f-1ec30c7ca556"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -442,6 +462,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SumSkinSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71dcf69e-43cc-4547-be99-78f22782c56f"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -461,6 +492,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Interact_2 = m_Player.FindAction("Interact_2", throwIfNotFound: true);
         m_Player_InteractAlternate_2 = m_Player.FindAction("InteractAlternate_2", throwIfNotFound: true);
         m_Player_Dash_2 = m_Player.FindAction("Dash_2", throwIfNotFound: true);
+        m_Player_Pause_2 = m_Player.FindAction("Pause_2", throwIfNotFound: true);
         m_Player_SumSkinSelect_2 = m_Player.FindAction("SumSkinSelect_2", throwIfNotFound: true);
         m_Player_SubSkinSelect_2 = m_Player.FindAction("SubSkinSelect_2", throwIfNotFound: true);
     }
@@ -535,6 +567,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact_2;
     private readonly InputAction m_Player_InteractAlternate_2;
     private readonly InputAction m_Player_Dash_2;
+    private readonly InputAction m_Player_Pause_2;
     private readonly InputAction m_Player_SumSkinSelect_2;
     private readonly InputAction m_Player_SubSkinSelect_2;
     public struct PlayerActions
@@ -552,6 +585,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact_2 => m_Wrapper.m_Player_Interact_2;
         public InputAction @InteractAlternate_2 => m_Wrapper.m_Player_InteractAlternate_2;
         public InputAction @Dash_2 => m_Wrapper.m_Player_Dash_2;
+        public InputAction @Pause_2 => m_Wrapper.m_Player_Pause_2;
         public InputAction @SumSkinSelect_2 => m_Wrapper.m_Player_SumSkinSelect_2;
         public InputAction @SubSkinSelect_2 => m_Wrapper.m_Player_SubSkinSelect_2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -596,6 +630,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash_2.started += instance.OnDash_2;
             @Dash_2.performed += instance.OnDash_2;
             @Dash_2.canceled += instance.OnDash_2;
+            @Pause_2.started += instance.OnPause_2;
+            @Pause_2.performed += instance.OnPause_2;
+            @Pause_2.canceled += instance.OnPause_2;
             @SumSkinSelect_2.started += instance.OnSumSkinSelect_2;
             @SumSkinSelect_2.performed += instance.OnSumSkinSelect_2;
             @SumSkinSelect_2.canceled += instance.OnSumSkinSelect_2;
@@ -639,6 +676,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash_2.started -= instance.OnDash_2;
             @Dash_2.performed -= instance.OnDash_2;
             @Dash_2.canceled -= instance.OnDash_2;
+            @Pause_2.started -= instance.OnPause_2;
+            @Pause_2.performed -= instance.OnPause_2;
+            @Pause_2.canceled -= instance.OnPause_2;
             @SumSkinSelect_2.started -= instance.OnSumSkinSelect_2;
             @SumSkinSelect_2.performed -= instance.OnSumSkinSelect_2;
             @SumSkinSelect_2.canceled -= instance.OnSumSkinSelect_2;
@@ -675,6 +715,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract_2(InputAction.CallbackContext context);
         void OnInteractAlternate_2(InputAction.CallbackContext context);
         void OnDash_2(InputAction.CallbackContext context);
+        void OnPause_2(InputAction.CallbackContext context);
         void OnSumSkinSelect_2(InputAction.CallbackContext context);
         void OnSubSkinSelect_2(InputAction.CallbackContext context);
     }

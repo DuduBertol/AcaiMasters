@@ -105,6 +105,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Pause_2",
+                    "type": "Button",
+                    "id": "48d72a0e-27a7-4b87-8bdf-9869d6f3eb43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SumSkinSelect_2",
                     "type": "Button",
                     "id": "e1b28090-3b95-4174-9d18-b941a4c64e86",
@@ -357,6 +366,17 @@
                 },
                 {
                     "name": "",
+                    "id": "082ff61e-0728-4473-b0a9-c9529e72f856",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "55a7ab9b-ec23-4dc5-999f-1ec30c7ca556",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -418,6 +438,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SumSkinSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71dcf69e-43cc-4547-be99-78f22782c56f",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

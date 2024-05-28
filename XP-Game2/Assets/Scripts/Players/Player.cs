@@ -151,7 +151,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         }
 
         float interactDistance = 2f;
-        if(Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
+        if(Physics.Raycast(transform.position /*-= Vector3.up*/, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
             if(raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
             {

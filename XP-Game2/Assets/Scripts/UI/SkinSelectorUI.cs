@@ -84,6 +84,7 @@ public class SkinSelectorUI : MonoBehaviour
     }
     private void GameInput_OnSumSkinSelectAction_2(object sender, System.EventArgs e)
     {
+        
         if(KitchenGameManager.Instance.IsSkinSelectionActive())
         {
             playerTwoSkinIndex++;
@@ -101,7 +102,10 @@ public class SkinSelectorUI : MonoBehaviour
         }
     }
 
-
+    private void Update() 
+    {
+        // HandleSumSub();   
+    }
 
     private void PlayerIndexCheck()
     {
@@ -158,6 +162,52 @@ public class SkinSelectorUI : MonoBehaviour
             }
         }
     }
+
+    /* private void HandleSumSub()
+    {
+        if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
+
+        Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalizedPlayerTwo();
+        if((int)inputVector.x == -1 )
+        {
+            playerTwoSkinIndex = 0;
+        }
+        else if((int)inputVector.x == 0 )
+        {
+            playerTwoSkinIndex = 1;
+        }
+        else if((int)inputVector.x == 1 )
+        {
+            playerTwoSkinIndex = 2;
+        }
+        
+        
+        
+        bool canSumSub = false;
+
+        if(inputVector == Vector2.left && canSumSub)
+        {
+            canSumSub = false;
+            playerTwoSkinIndex--;
+            PlayerTwoIndexCheck();
+            SkinVisualChanger();
+        }
+        else
+        {
+            canSumSub = true;
+        }
+        if(inputVector == Vector2.right && canSumSub)
+        {
+            canSumSub = false;
+            playerTwoSkinIndex++;
+            PlayerTwoIndexCheck();
+            SkinVisualChanger();
+        }
+        else
+        {
+            canSumSub = true;
+        }
+    } */
 
     private void Show()
     {
