@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StoveCounter : BaseCounter, IHasProgress
@@ -55,13 +56,17 @@ public class StoveCounter : BaseCounter, IHasProgress
                     {
                         //Fried
 
-                        GetKitchenObject().DestroySelf();
+                        if(GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                        {   
+                            plateKitchenObject.GetKitchenObjectSOList().RemoveAt(0);
+                            plateKitchenObject.TryAddIngredient(fryingRecipeSO.output);
+                        }
 
-                        KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+                        KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
 
                         state = State.Fried;
                         burningTimer = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                        burningRecipeSO = GetBurningRecipeSOWithInput(whichIsInPlateKitchenObject);
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
                             state = state
@@ -110,26 +115,32 @@ public class StoveCounter : BaseCounter, IHasProgress
     public override void Interact(Player player)
     {
         
-        if(!HasKitchenObject())
+        if(!HasKitchenObject()) 
+        //There is no KitchenObject here
         {
-            //There is no KitchenObject here
-            if(player.HasKitchenObject())
+            if(player.HasKitchenObject()) 
+            //Player is carrying something
             {
-                //Player is carrying something
-                if(HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) 
+                //Player is holding a plate
                 {
-                    //Player carrying something that can be Fried
-                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
 
-                    
-                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
+                    //Player carrying something that can be Freezed (Acai)
+                    {
+                        player.GetKitchenObject().SetKitchenObjectParent(this);
 
-                    state = State.Frying;
-                    fryingTimer = 0f;
+                        
+                        fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
 
-                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                        state = state
-                    });
+                        state = State.Frying;
+                        fryingTimer = 0f;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                            state = state
+                        });
+                    }
                 }
             }
             else
@@ -137,9 +148,8 @@ public class StoveCounter : BaseCounter, IHasProgress
                 //Player not carrying anything
             }
         }
-        else
+        else //There is a KitchenObject here
         {
-            //There is a KitchenObject here
             if(player.HasKitchenObject())
             {
                 //Player is carring something
@@ -180,6 +190,74 @@ public class StoveCounter : BaseCounter, IHasProgress
                 });
             }
         }
+        /* BACKUP
+            //There is no KitchenObject here
+            if(player.HasKitchenObject())
+            {
+                //Player is carrying something
+                if(HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    //Player carrying something that can be Fried
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+
+                    
+                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+                    state = State.Frying;
+                    fryingTimer = 0f;
+
+                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                        state = state
+                    });
+                }
+            } 
+            else
+            {
+                //Player not carrying anything
+            }
+        }
+        else //There is a KitchenObject here
+        {
+            if(player.HasKitchenObject())
+            {
+                //Player is carring something
+                if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    //Player is holding a plate
+                    if(plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+
+                        state = State.Idle;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
+                        });
+                    }
+                }
+            }
+            else
+            {
+                //Player is not carrying anything
+                GetKitchenObject().SetKitchenObjectParent(player);
+
+                state = State.Idle;
+
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                    state = state
+                });
+
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
+                });
+            }
+        }*/
     }
 
     public override void Interact_2(PlayerTwo playerTwo)

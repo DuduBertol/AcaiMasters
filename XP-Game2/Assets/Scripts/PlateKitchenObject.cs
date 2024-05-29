@@ -14,8 +14,10 @@ public class PlateKitchenObject : KitchenObject
 
 
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;
+    [SerializeField] private KitchenObjectSO requiredKitchenObject; //Acai Gelado
+    [SerializeField] private KitchenObjectSO uniqueKitchenObject; // Acai Fruta
 
-    private List<KitchenObjectSO> kitchenObjectSOList;
+    [SerializeField] private List<KitchenObjectSO> kitchenObjectSOList;
 
     private void Awake() 
     {
@@ -25,28 +27,56 @@ public class PlateKitchenObject : KitchenObject
 
     public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO)
     {
-        if(!validKitchenObjectSOList.Contains(kitchenObjectSO))
+        if(kitchenObjectSO != uniqueKitchenObject)
         {
-            //Not a valid ingredient
-            return false;
-        }
-        if(kitchenObjectSOList.Contains(kitchenObjectSO))
-        {
-            //Already has this type
+            if(kitchenObjectSOList.Contains(requiredKitchenObject))
+            {
+                if(!validKitchenObjectSOList.Contains(kitchenObjectSO))
+                {
+                    //Not a valid ingredient
+                    return false;
+                }
+                if(kitchenObjectSOList.Contains(kitchenObjectSO))
+                {
+                    //Already has this type
+                    return false;
+                }
+                else
+                {
+                    kitchenObjectSOList.Add(kitchenObjectSO);
+
+                    OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                    {
+                        kitchenObjectSO = kitchenObjectSO
+                    });
+
+                    return true;
+                }
+            }
+            else if(kitchenObjectSO == requiredKitchenObject)
+            {
+                kitchenObjectSOList.Add(kitchenObjectSO);
+
+                OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                {
+                    kitchenObjectSO = kitchenObjectSO
+                });
+
+                return true;
+            }
             return false;
         }
         else
         {
             kitchenObjectSOList.Add(kitchenObjectSO);
 
-            OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
-            {
-                kitchenObjectSO = kitchenObjectSO
-            });
+                OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                {
+                    kitchenObjectSO = kitchenObjectSO
+                });
 
-            return true;
+                return true;
         }
-        
     }
 
     public List<KitchenObjectSO> GetKitchenObjectSOList()

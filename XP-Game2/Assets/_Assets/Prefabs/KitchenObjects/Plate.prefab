@@ -410,9 +410,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4b6cf1936799774685f7f9d4a80d59e, type: 2}
   - {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
   - {fileID: 11400000, guid: 28fa2a4a0f16cd24996af279b5a88ebc, type: 2}
+  - {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5, type: 2}
   - {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431, type: 2}
   - {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64, type: 2}
   - {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
+  requiredKitchenObject: {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431,
+    type: 2}
+  uniqueKitchenObject: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5,
+    type: 2}
+  kitchenObjectSOList: []
 --- !u!1001 &223179854290431083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -484,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
       propertyPath: kitchenObjectSOGameObjectList.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
@@ -521,6 +527,11 @@ PrefabInstance:
       propertyPath: kitchenObjectSOGameObjectList.Array.data[5].gameObject
       value: 
       objectReference: {fileID: 3532287703151244778}
+    - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
+        type: 3}
+      propertyPath: kitchenObjectSOGameObjectList.Array.data[6].gameObject
+      value: 
+      objectReference: {fileID: 4010176997333747574}
     - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
       propertyPath: kitchenObjectSO_GameObjectList.Array.data[0].gameObject
@@ -586,6 +597,12 @@ PrefabInstance:
       propertyPath: kitchenObjectSOGameObjectList.Array.data[5].kitchenObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64,
+        type: 2}
+    - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
+        type: 3}
+      propertyPath: kitchenObjectSOGameObjectList.Array.data[6].kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5,
         type: 2}
     - target: {fileID: 4829352635125789710, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
@@ -667,6 +684,12 @@ GameObject:
 --- !u!1 &3629410170048601594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3550707552397226385, guid: 10e39c981f2de6441b54efde32ced8f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 223179854290431083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4010176997333747574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3801009903343266589, guid: 10e39c981f2de6441b54efde32ced8f0,
     type: 3}
   m_PrefabInstance: {fileID: 223179854290431083}
   m_PrefabAsset: {fileID: 0}
