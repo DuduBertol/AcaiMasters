@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI recipesDeliveredText;
+    [SerializeField] private TextMeshProUGUI recipesLostText;
+    [SerializeField] private TextMeshProUGUI recipesTotalText;
 
     private void Start() 
     {
@@ -20,7 +22,9 @@ public class GameOverUI : MonoBehaviour
         {
             Show();
 
-            recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesAmount().ToString();
+            recipesDeliveredText.text = "+" + DeliveryManager.Instance.GetSuccessfulRecipesAmount().ToString();
+            recipesLostText.text = "-" + DeliveryManager.Instance.GetFailedRecipesAmount().ToString();
+            recipesTotalText.text = DeliveryManager.Instance.GetTotalRecipesAmount().ToString();
         }
         else
         {

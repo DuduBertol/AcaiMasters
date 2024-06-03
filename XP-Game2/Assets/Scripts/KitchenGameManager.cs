@@ -29,12 +29,13 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private Transform camPosGame;
     [SerializeField] private Transform camPosSkinSelector;
     [SerializeField] private float camSpeed;
-    [SerializeField] private float gamePlayingTimerMax;
-    private float gamePlayingTimer;
+    [SerializeField] private float gamePlayingTimerMax; 
+    [SerializeField] private float gamePlayingTimer; 
     private float countdownToStartTimer = 3f;
     private bool isGamePaused = false;
     [SerializeField] private bool isPlayerReady;
     [SerializeField] private bool isPlayerTwoReady;
+
 
     private void Awake() 
     {
@@ -158,6 +159,8 @@ public class KitchenGameManager : MonoBehaviour
     {
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
     }
+
+    
 
     public void TogglePauseGame()
     {

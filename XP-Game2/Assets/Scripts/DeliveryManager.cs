@@ -27,6 +27,7 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimerMax = 4f;
     private int waitingRecipeMax = 4;
     private int successfulRecipesAmount;
+    private int failedRecipesAmount;
 
     private void Awake() 
     {
@@ -107,6 +108,7 @@ public class DeliveryManager : MonoBehaviour
         //No matches found!
         //Player did not deliver a correct recipe
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+        failedRecipesAmount++;
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()
@@ -117,6 +119,14 @@ public class DeliveryManager : MonoBehaviour
     public int GetSuccessfulRecipesAmount()
     {
         return successfulRecipesAmount;
+    }
+    public int GetFailedRecipesAmount()
+    {
+        return failedRecipesAmount;
+    }
+    public int GetTotalRecipesAmount()
+    {
+        return successfulRecipesAmount - failedRecipesAmount;
     }
 
     private void RecipeLifeTimerCountdown()
