@@ -11,11 +11,17 @@ public class PlateKitchenObject : KitchenObject
     {
         public KitchenObjectSO kitchenObjectSO;
     }
+    public event EventHandler<OnIngredientRemovedEventArgs> OnIngredientRemoved;
+    public class OnIngredientRemovedEventArgs : EventArgs
+    {
+        public KitchenObjectSO kitchenObjectSO;
+    }
 
 
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;
-    [SerializeField] private KitchenObjectSO requiredKitchenObject; //Acai Gelado
-    [SerializeField] private KitchenObjectSO uniqueKitchenObject; // Acai Fruta
+    [SerializeField] private KitchenObjectSO firstStepKitchenObject; // Acai Fruta
+    [SerializeField] private KitchenObjectSO secondStepKitchenObject; //Acai Gelado
+    [SerializeField] private KitchenObjectSO thirdStepKitchenObject; //Acai Congelado
 
     [SerializeField] private List<KitchenObjectSO> kitchenObjectSOList;
 
@@ -27,9 +33,9 @@ public class PlateKitchenObject : KitchenObject
 
     public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO)
     {
-        if(kitchenObjectSO != uniqueKitchenObject)
+        if(kitchenObjectSO != firstStepKitchenObject)
         {
-            if(kitchenObjectSOList.Contains(requiredKitchenObject))
+            if(kitchenObjectSOList.Contains(secondStepKitchenObject))
             {
                 if(!validKitchenObjectSOList.Contains(kitchenObjectSO))
                 {
@@ -53,7 +59,7 @@ public class PlateKitchenObject : KitchenObject
                     return true;
                 }
             }
-            else if(kitchenObjectSO == requiredKitchenObject)
+            else if(kitchenObjectSO == secondStepKitchenObject || kitchenObjectSO == thirdStepKitchenObject)
             {
                 kitchenObjectSOList.Add(kitchenObjectSO);
 
@@ -77,6 +83,16 @@ public class PlateKitchenObject : KitchenObject
 
                 return true;
         }
+    }
+
+    public void TryRemoveIngredient(KitchenObjectSO kitchenObjectSO)
+    {
+        kitchenObjectSOList.Remove(kitchenObjectSO);
+
+        OnIngredientRemoved?.Invoke(this, new OnIngredientRemovedEventArgs
+        {
+            kitchenObjectSO = kitchenObjectSO
+        });
     }
 
     public List<KitchenObjectSO> GetKitchenObjectSOList()

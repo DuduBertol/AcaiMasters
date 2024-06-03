@@ -31,11 +31,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3550707552375629788}
+  - {fileID: 3801009903343266588}
+  - {fileID: 3611271270719445376}
   - {fileID: 3550707551136013322}
   - {fileID: 5673689010552445290}
   - {fileID: 3550707552397226384}
-  - {fileID: 3611271270719445376}
-  - {fileID: 3801009903343266588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4829352635125789710
@@ -52,20 +52,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plateKitchenObject: {fileID: 0}
   kitchenObjectSOGameObjectList:
-  - kitchenObjectSO: {fileID: 11400000, guid: c4b6cf1936799774685f7f9d4a80d59e, type: 2}
-    gameObject: {fileID: 0}
-  - kitchenObjectSO: {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431, type: 2}
-    gameObject: {fileID: 3550707552375629789}
-  - kitchenObjectSO: {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
-    gameObject: {fileID: 3550707551136013323}
-  - kitchenObjectSO: {fileID: 11400000, guid: 28fa2a4a0f16cd24996af279b5a88ebc, type: 2}
-    gameObject: {fileID: 0}
-  - kitchenObjectSO: {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
-    gameObject: {fileID: 3550707552397226385}
-  - kitchenObjectSO: {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64, type: 2}
-    gameObject: {fileID: 3611271270719445377}
   - kitchenObjectSO: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5, type: 2}
     gameObject: {fileID: 3801009903343266589}
+  - kitchenObjectSO: {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431, type: 2}
+    gameObject: {fileID: 3550707552375629789}
+  - kitchenObjectSO: {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64, type: 2}
+    gameObject: {fileID: 3611271270719445377}
+  - kitchenObjectSO: {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
+    gameObject: {fileID: 3550707551136013323}
+  - kitchenObjectSO: {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
+    gameObject: {fileID: 3550707552397226385}
+  - kitchenObjectSO: {fileID: 11400000, guid: 77c7ffa663d54fa409e485bb03cb33e3, type: 2}
+    gameObject: {fileID: 5673689010552445291}
 --- !u!1001 &24181925769706908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226176, guid: 21b2fcdae015b8c4c83ff4b68b31b06f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.166
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3812876574508226176, guid: 21b2fcdae015b8c4c83ff4b68b31b06f,
         type: 3}
@@ -127,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226177, guid: 21b2fcdae015b8c4c83ff4b68b31b06f,
         type: 3}
       propertyPath: m_Name
-      value: MeatPattyUncooked
+      value: AcaiFruit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -507,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226176, guid: 0df961a7e3870b44f9bbce7bdf930613,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.166
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3812876574508226176, guid: 0df961a7e3870b44f9bbce7bdf930613,
         type: 3}
@@ -552,7 +550,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226177, guid: 0df961a7e3870b44f9bbce7bdf930613,
         type: 3}
       propertyPath: m_Name
-      value: MeatPattyBurned
+      value: AcaiFreezed
       objectReference: {fileID: 0}
     - target: {fileID: 3812876574508226177, guid: 0df961a7e3870b44f9bbce7bdf930613,
         type: 3}
@@ -637,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226177, guid: 44325c67017631342b5f02792113e57b,
         type: 3}
       propertyPath: m_Name
-      value: CheeseBlock
+      value: MilkPowder
       objectReference: {fileID: 0}
     - target: {fileID: 7241788888950961969, guid: 44325c67017631342b5f02792113e57b,
         type: 3}
@@ -667,6 +665,12 @@ PrefabInstance:
 --- !u!4 &5673689010552445290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3812876574508226176, guid: 44325c67017631342b5f02792113e57b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8815498385537404906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5673689010552445291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3812876574508226177, guid: 44325c67017631342b5f02792113e57b,
     type: 3}
   m_PrefabInstance: {fileID: 8815498385537404906}
   m_PrefabAsset: {fileID: 0}

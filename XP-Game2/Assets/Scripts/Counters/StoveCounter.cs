@@ -58,7 +58,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         if(GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                         {   
-                            plateKitchenObject.GetKitchenObjectSOList().RemoveAt(0);
+                            plateKitchenObject.TryRemoveIngredient(fryingRecipeSO.input);
                             plateKitchenObject.TryAddIngredient(fryingRecipeSO.output);
                         }
 
@@ -89,10 +89,11 @@ public class StoveCounter : BaseCounter, IHasProgress
                     if(burningTimer >= burningRecipeSO.burningTimerMax)
                     {
                         //Fried
-
-                        GetKitchenObject().DestroySelf();
-
-                        KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
+                        if(GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                        {   
+                            plateKitchenObject.TryRemoveIngredient(burningRecipeSO.input);
+                            plateKitchenObject.TryAddIngredient(burningRecipeSO.output);
+                        }
 
                         state = State.Burned;
 

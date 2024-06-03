@@ -6690,7 +6690,7 @@ Transform:
   m_GameObject: {fileID: 533802992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 1}
+  m_LocalPosition: {x: -0.114, y: 1.221, z: 1.404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7472,7 +7472,7 @@ PrefabInstance:
     - target: {fileID: 5954367875062173055, guid: d81919205eb74094c9b2fc1661f08396,
         type: 3}
       propertyPath: m_Name
-      value: ContainerCounter_MeatPattyUncoocked
+      value: ContainerCounter_Acai
       objectReference: {fileID: 0}
     - target: {fileID: 7177181281964979826, guid: d81919205eb74094c9b2fc1661f08396,
         type: 3}
@@ -9666,9 +9666,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 89591753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -4}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 175, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764944381
@@ -10632,7 +10632,7 @@ Transform:
   m_GameObject: {fileID: 836581184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 1}
+  m_LocalPosition: {x: -0.114, y: 1.221, z: 1.404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11643,7 +11643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &931124217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14482,7 +14482,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeliveryCounter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4745120878255112579, guid: a5e53a3d00df9bc4e98820feed61da31,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922282785292963362, guid: a5e53a3d00df9bc4e98820feed61da31,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1151394487956787482, guid: a5e53a3d00df9bc4e98820feed61da31, type: 3}
+    - {fileID: 7536070882165174570, guid: a5e53a3d00df9bc4e98820feed61da31, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22953,8 +22965,8 @@ RectTransform:
   - {fileID: 1495442002}
   m_Father: {fileID: 865044529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 192, y: 100}
   m_Pivot: {x: 0, y: 1}
@@ -29087,7 +29099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeLifeTimerList: []
   recipeLifeTimerBarList: []
-  recipeLifeTimerMax: 20
+  recipeLifeTimerMax: 100
   recipeListSO: {fileID: 11400000, guid: 74e01007698a672448c2dccf4eb7fbad, type: 2}
   recipeLifeTimerBarTemplate: {fileID: 764944380}
 --- !u!4 &1756757857
@@ -31838,9 +31850,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1495442002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928290869
@@ -40568,6 +40580,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 931124220}
   - {fileID: 956853872}
   - {fileID: 636731753}
   - {fileID: 576826761}
@@ -40580,7 +40593,6 @@ SceneRoots:
   - {fileID: 1959075565}
   - {fileID: 209141339}
   - {fileID: 331690741}
-  - {fileID: 931124220}
   - {fileID: 1872794144}
   - {fileID: 2068419690}
   - {fileID: 582297120}

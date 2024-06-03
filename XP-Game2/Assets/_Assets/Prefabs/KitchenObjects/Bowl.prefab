@@ -166,7 +166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.259}
   m_SizeDelta: {x: 0.9, y: 0.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2077881206340941514
@@ -413,9 +413,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
   - {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
   - {fileID: 11400000, guid: 77c7ffa663d54fa409e485bb03cb33e3, type: 2}
-  requiredKitchenObject: {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431,
+  firstStepKitchenObject: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5,
     type: 2}
-  uniqueKitchenObject: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5,
+  secondStepKitchenObject: {fileID: 11400000, guid: ae7d2bf7a58670c41be43346223c5431,
+    type: 2}
+  thirdStepKitchenObject: {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64,
     type: 2}
   kitchenObjectSOList: []
 --- !u!1001 &223179854290431083
@@ -434,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 408889407006782756, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: 408889407006782756, guid: 10e39c981f2de6441b54efde32ced8f0,
         type: 3}
@@ -671,7 +673,7 @@ PrefabInstance:
     - target: {fileID: 3812876574508226176, guid: c0c9afd619b40914a8f625c0535e2284,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: 3812876574508226176, guid: c0c9afd619b40914a8f625c0535e2284,
         type: 3}
