@@ -15,3 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 4509616433724562944, guid: 27154478df7db58438ce367494100179, type: 3}
   sprite: {fileID: 21300000, guid: a73e94add95fabd46bbe9f15560aa5fd, type: 3}
   objectName: Strawberry
+  hasRequirement: 0
+  requirementSprite: {fileID: 0}

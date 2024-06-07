@@ -80,7 +80,7 @@ public class DeliveryManagerUI : MonoBehaviour
         {
             float recipeLifeTimerMax = DeliveryManager.Instance.recipeLifeTimerMax;
             
-            DeliveryManager.Instance.recipeLifeTimerBarList[i].gameObject.GetComponent<Image>().fillAmount = DeliveryManager.Instance.recipeLifeTimerList[i] / recipeLifeTimerMax;
+            DeliveryManager.Instance.recipeLifeTimerBarList[i].GetChild(1).gameObject.GetComponent<Image>().fillAmount = DeliveryManager.Instance.recipeLifeTimerList[i] / recipeLifeTimerMax;
 
             if(DeliveryManager.Instance.recipeLifeTimerList[i] <= recipeLifeTimerMax) //100%
                 {
@@ -88,13 +88,13 @@ public class DeliveryManagerUI : MonoBehaviour
                     {
                         if(DeliveryManager.Instance.recipeLifeTimerList[i] <= recipeLifeTimerMax * 1/3) //33%
                         {
-                            DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = red;
+                            DeliveryManager.Instance.recipeLifeTimerBarList[i].GetChild(1).GetComponent<Image>().color = red;
                             continue;
                         }
-                        DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = yellow;
+                        DeliveryManager.Instance.recipeLifeTimerBarList[i].GetChild(1).GetComponent<Image>().color = yellow;
                         continue;
                     }
-                    DeliveryManager.Instance.recipeLifeTimerBarList[i].GetComponent<Image>().color = green;
+                    DeliveryManager.Instance.recipeLifeTimerBarList[i].GetChild(1).GetComponent<Image>().color = green;
                     continue;
                 }
         }

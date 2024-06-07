@@ -11,6 +11,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recipeNametext;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
+    [SerializeField] private Transform recipeSprite;
 
     
 
@@ -23,6 +24,8 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     {
         recipeNametext.text = recipeSO.recipeName;
 
+        recipeSprite.gameObject.GetComponent<Image>().sprite = recipeSO.recipeImage;
+
         foreach (Transform child in iconContainer)
         {
             if(child == iconTemplate) continue;
@@ -33,7 +36,14 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         {
             Transform iconTransform = Instantiate(iconTemplate, iconContainer);
             iconTransform.gameObject.SetActive(true);
-            iconTransform.GetComponent<Image>().sprite = kitchenObjectSO.sprite;
+            // iconTransform.GetComponent<Image>().sprite = kitchenObjectSO.sprite;
+            iconTransform.GetChild(2).GetComponent<Image>().sprite = kitchenObjectSO.sprite;
+
+            /* if(kitchenObjectSO.hasRequirement)
+            {
+                iconTransform.GetChild(0).gameObject.SetActive(true); //Requirements
+                iconTransform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = kitchenObjectSO.requirementSprite; //RequirementSprite
+            } */
         }
     }
     

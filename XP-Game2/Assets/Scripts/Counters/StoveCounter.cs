@@ -191,7 +191,88 @@ public class StoveCounter : BaseCounter, IHasProgress
                 });
             }
         }
-        /* BACKUP
+    }
+
+    public override void Interact_2(PlayerTwo playerTwo)
+    {
+        if(!HasKitchenObject()) 
+        //There is no KitchenObject here
+        {
+            if(playerTwo.HasKitchenObject()) 
+            //Player is carrying something
+            {
+                if(playerTwo.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) 
+                //Player is holding a plate
+                {
+                    KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
+
+                    if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
+                    //Player carrying something that can be Freezed (Acai)
+                    {
+                        playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
+
+                        
+                        fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
+
+                        state = State.Frying;
+                        fryingTimer = 0f;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                            state = state
+                        });
+                    }
+                }
+            }
+            else
+            {
+                //Player not carrying anything
+            }
+        }
+        else //There is a KitchenObject here
+        {
+            if(playerTwo.HasKitchenObject())
+            {
+                //Player is carring something
+                if(playerTwo.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    //Player is holding a plate
+                    if(plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+
+                        state = State.Idle;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
+                        });
+                    }
+                }
+            }
+            else
+            {
+                //Player is not carrying anything
+                GetKitchenObject().SetKitchenObjectParent(playerTwo);
+
+                state = State.Idle;
+
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                    state = state
+                });
+
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
+                });
+            }
+        }
+    }
+
+    /* BACKUP
             //There is no KitchenObject here
             if(player.HasKitchenObject())
             {
@@ -259,82 +340,6 @@ public class StoveCounter : BaseCounter, IHasProgress
                 });
             }
         }*/
-    }
-
-    public override void Interact_2(PlayerTwo playerTwo)
-    {
-        
-        if(!HasKitchenObject())
-        {
-            //There is no KitchenObject here
-            if(playerTwo.HasKitchenObject())
-            {
-                //Player is carrying something
-                if(HasRecipeWithInput(playerTwo.GetKitchenObject().GetKitchenObjectSO()))
-                {
-                    //Player carrying something that can be Fried
-                    playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
-
-                    
-                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
-
-                    state = State.Frying;
-                    fryingTimer = 0f;
-
-                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                        state = state
-                    });
-                }
-            }
-            else
-            {
-                //Player not carrying anything
-            }
-        }
-        else
-        {
-            //There is a KitchenObject here
-            if(playerTwo.HasKitchenObject())
-            {
-                //Player is carring something
-                if(playerTwo.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
-                {
-                    //Player is holding a plate
-                    if(plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
-                    {
-                        GetKitchenObject().DestroySelf();
-
-                        state = State.Idle;
-
-                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                            state = state
-                        });
-
-                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
-                        {
-                            progressNormalized = 0f
-                        });
-                    }
-                }
-            }
-            else
-            {
-                //Player is not carrying anything
-                GetKitchenObject().SetKitchenObjectParent(playerTwo);
-
-                state = State.Idle;
-
-                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                    state = state
-                });
-
-                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
-                {
-                    progressNormalized = 0f
-                });
-            }
-        }
-    }
 
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
     {

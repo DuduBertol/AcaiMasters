@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
   - {fileID: 11400000, guid: 77c7ffa663d54fa409e485bb03cb33e3, type: 2}
   recipeName: Complete Acai
+  recipeImage: {fileID: 21300000, guid: 79493f4be001caf438b5d3a0805f8b92, type: 3}

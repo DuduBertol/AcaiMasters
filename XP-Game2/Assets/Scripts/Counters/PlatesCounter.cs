@@ -12,9 +12,9 @@ public class PlatesCounter : BaseCounter
     [SerializeField] private KitchenObjectSO plateKitchenObjectSO;
 
     private float spawnPlateTimer;
-    private float spawnPlateTimerMax = 4f;
+    [SerializeField] private float spawnPlateTimerMax;
     private int platesSpawnedAmount;
-    private int platesSpawnedAmountMax = 4;
+    [SerializeField] private int platesSpawnedAmountMax;
 
     private void Update()
     {

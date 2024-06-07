@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Bowl
   m_EditorClassIdentifier: 
   prefab: {fileID: 4509616433724562944, guid: b51e591a5de19e145b278304f74ac1b0, type: 3}
-  sprite: {fileID: 21300000, guid: 3928afb5321bb3d489bbd4ac581b29a2, type: 3}
+  sprite: {fileID: 21300000, guid: 44704bf912b84e7469853b6315322ee4, type: 3}
   objectName: Bowl
+  hasRequirement: 0
+  requirementSprite: {fileID: 0}

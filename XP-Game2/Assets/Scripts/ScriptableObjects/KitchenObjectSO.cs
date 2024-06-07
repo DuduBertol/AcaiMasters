@@ -8,4 +8,6 @@ public class KitchenObjectSO : ScriptableObject
     public Transform prefab;
     public Sprite sprite;
     public string objectName;
+    public bool hasRequirement;
+    public Sprite requirementSprite;
 }

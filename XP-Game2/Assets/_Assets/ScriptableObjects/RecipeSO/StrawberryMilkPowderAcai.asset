@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
   - {fileID: 11400000, guid: 77c7ffa663d54fa409e485bb03cb33e3, type: 2}
   recipeName: Strawberry Milk Powder Acai
+  recipeImage: {fileID: 21300000, guid: 1d010dd9ecac46643b85027896ab338b, type: 3}

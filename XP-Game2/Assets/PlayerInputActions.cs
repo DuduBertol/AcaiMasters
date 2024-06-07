@@ -152,6 +152,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenRecipe"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec9e0a2d-1441-4221-9a97-6155827fabf8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenRecipe_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd6d2258-cc39-498a-b2ea-f3cf53405ad7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,30 +230,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1b3ee402-5b9d-44c5-a8d8-e17b9bdcffd0"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.5)"",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""5a5c66a4-7d2b-41d0-8a8f-ad5ef489dd35"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b812fdcc-548a-4611-b372-d571e8128065"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -323,18 +319,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0352378e-6be6-463d-868c-0243ccb6c378"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""InteractAlternate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7cac1a0c-990b-4d14-9e2c-c1eb6f102342"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -367,7 +352,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b0f15ca-1219-4fab-adc5-e48c6e139cfe"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -378,18 +363,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""afa80203-f8f7-4b39-adf5-a6f168d94e47"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""082ff61e-0728-4473-b0a9-c9529e72f856"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -401,17 +375,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""55a7ab9b-ec23-4dc5-999f-1ec30c7ca556"",
                     ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SubSkinSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""36d8be35-f064-49cb-9c5e-2f056871e1cf"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -454,23 +417,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""26c66b26-256b-4c37-a0a4-585acbdf6a67"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SumSkinSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""71dcf69e-43cc-4547-be99-78f22782c56f"",
                     ""path"": ""<Keyboard>/backspace"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec55e693-afa9-4e66-99e6-bd9ccc93a720"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenRecipe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29da6103-260d-41b1-a306-0194e9f223ed"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenRecipe_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -495,6 +469,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Pause_2 = m_Player.FindAction("Pause_2", throwIfNotFound: true);
         m_Player_SumSkinSelect_2 = m_Player.FindAction("SumSkinSelect_2", throwIfNotFound: true);
         m_Player_SubSkinSelect_2 = m_Player.FindAction("SubSkinSelect_2", throwIfNotFound: true);
+        m_Player_OpenRecipe = m_Player.FindAction("OpenRecipe", throwIfNotFound: true);
+        m_Player_OpenRecipe_2 = m_Player.FindAction("OpenRecipe_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -570,6 +546,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause_2;
     private readonly InputAction m_Player_SumSkinSelect_2;
     private readonly InputAction m_Player_SubSkinSelect_2;
+    private readonly InputAction m_Player_OpenRecipe;
+    private readonly InputAction m_Player_OpenRecipe_2;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -588,6 +566,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Pause_2 => m_Wrapper.m_Player_Pause_2;
         public InputAction @SumSkinSelect_2 => m_Wrapper.m_Player_SumSkinSelect_2;
         public InputAction @SubSkinSelect_2 => m_Wrapper.m_Player_SubSkinSelect_2;
+        public InputAction @OpenRecipe => m_Wrapper.m_Player_OpenRecipe;
+        public InputAction @OpenRecipe_2 => m_Wrapper.m_Player_OpenRecipe_2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -639,6 +619,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SubSkinSelect_2.started += instance.OnSubSkinSelect_2;
             @SubSkinSelect_2.performed += instance.OnSubSkinSelect_2;
             @SubSkinSelect_2.canceled += instance.OnSubSkinSelect_2;
+            @OpenRecipe.started += instance.OnOpenRecipe;
+            @OpenRecipe.performed += instance.OnOpenRecipe;
+            @OpenRecipe.canceled += instance.OnOpenRecipe;
+            @OpenRecipe_2.started += instance.OnOpenRecipe_2;
+            @OpenRecipe_2.performed += instance.OnOpenRecipe_2;
+            @OpenRecipe_2.canceled += instance.OnOpenRecipe_2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -685,6 +671,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SubSkinSelect_2.started -= instance.OnSubSkinSelect_2;
             @SubSkinSelect_2.performed -= instance.OnSubSkinSelect_2;
             @SubSkinSelect_2.canceled -= instance.OnSubSkinSelect_2;
+            @OpenRecipe.started -= instance.OnOpenRecipe;
+            @OpenRecipe.performed -= instance.OnOpenRecipe;
+            @OpenRecipe.canceled -= instance.OnOpenRecipe;
+            @OpenRecipe_2.started -= instance.OnOpenRecipe_2;
+            @OpenRecipe_2.performed -= instance.OnOpenRecipe_2;
+            @OpenRecipe_2.canceled -= instance.OnOpenRecipe_2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -718,5 +710,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnPause_2(InputAction.CallbackContext context);
         void OnSumSkinSelect_2(InputAction.CallbackContext context);
         void OnSubSkinSelect_2(InputAction.CallbackContext context);
+        void OnOpenRecipe(InputAction.CallbackContext context);
+        void OnOpenRecipe_2(InputAction.CallbackContext context);
     }
 }

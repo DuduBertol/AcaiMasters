@@ -18,6 +18,8 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction_2;
     public event EventHandler OnInteractAlternateAction_2;
     public event EventHandler OnDashAction_2;
+    public event EventHandler OnOpenRecipe;
+    public event EventHandler OnOpenRecipe_2;
     public event EventHandler OnPauseAction;
     public event EventHandler OnSubSkinSelectAction;
     public event EventHandler OnSumSkinSelectAction;
@@ -38,10 +40,10 @@ public class GameInput : MonoBehaviour
         InteractAlternate_1,
         Dash_1,
         Pause_1,
-        Gamepad_Interact_1,
-        Gamepad_InteractAlternate_1,
-        Gamepad_Pause_1,
-        Gamepad_Dash_1,
+        // Gamepad_Interact_1,
+        // Gamepad_InteractAlternate_1,
+        // Gamepad_Pause_1,
+        // Gamepad_Dash_1,
 
         //Player 2
         Move_Up_2,
@@ -74,6 +76,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Dash.performed += Dash_performed;
+        playerInputActions.Player.OpenRecipe.performed += OpenRecipe_performed;
         playerInputActions.Player.SumSkinSelect.performed += SumSkinSelect_performed;
         playerInputActions.Player.SubSkinSelect.performed += SubSkinSelect_performed;
 
@@ -82,6 +85,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact_2.performed += Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed += InteractAlternate_performed_2;
         playerInputActions.Player.Dash_2.performed += Dash_performed_2;
+        playerInputActions.Player.OpenRecipe_2.performed += OpenRecipe_performed_2;
         playerInputActions.Player.SumSkinSelect_2.performed += SumSkinSelect_performed_2;
         playerInputActions.Player.SubSkinSelect_2.performed += SubSkinSelect_performed_2;
     
@@ -92,6 +96,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact.performed -= Interact_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
         playerInputActions.Player.Dash.performed -= Dash_performed;
+        playerInputActions.Player.OpenRecipe.performed -= OpenRecipe_performed;
         playerInputActions.Player.SumSkinSelect.performed -= SumSkinSelect_performed;
         playerInputActions.Player.SubSkinSelect.performed -= SubSkinSelect_performed;
 
@@ -100,12 +105,22 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact_2.performed -= Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed -= InteractAlternate_performed_2;
         playerInputActions.Player.Dash_2.performed -= Dash_performed_2;
+        playerInputActions.Player.OpenRecipe_2.performed -= OpenRecipe_performed_2;
         playerInputActions.Player.SumSkinSelect_2.performed -= SumSkinSelect_performed_2;
         playerInputActions.Player.SubSkinSelect_2.performed -= SubSkinSelect_performed_2;
 
         playerInputActions.Dispose();
     }
 
+    
+    private void OpenRecipe_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnOpenRecipe?.Invoke(this, EventArgs.Empty);
+    }
+    private void OpenRecipe_performed_2(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnOpenRecipe_2?.Invoke(this, EventArgs.Empty);
+    }
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
@@ -196,14 +211,14 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.Dash.bindings[0].ToDisplayString();
             case Binding.Pause_1:
                 return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
-            case Binding.Gamepad_Interact_1:
-                return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
-            case Binding.Gamepad_InteractAlternate_1:
-                return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
-            case Binding.Gamepad_Dash_1:
-                return playerInputActions.Player.Dash.bindings[1].ToDisplayString();
-            case Binding.Gamepad_Pause_1:
-                return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
+            // case Binding.Gamepad_Interact_1:
+            //     return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
+            // case Binding.Gamepad_InteractAlternate_1:
+            //     return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
+            // case Binding.Gamepad_Dash_1:
+            //     return playerInputActions.Player.Dash.bindings[1].ToDisplayString();
+            // case Binding.Gamepad_Pause_1:
+            //     return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
 
             //Player 2
             case Binding.Move_Up_2:
@@ -268,22 +283,22 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 0;
                 break;
-            case Binding.Gamepad_Interact_1:
-                inputAction = playerInputActions.Player.Interact;
-                bindingIndex = 1;
-                break;
-            case Binding.Gamepad_InteractAlternate_1:
-                inputAction = playerInputActions.Player.InteractAlternate;
-                bindingIndex = 1;
-                break;
-            case Binding.Gamepad_Dash_1:
-                inputAction = playerInputActions.Player.Dash;
-                bindingIndex = 1;
-                break;
-            case Binding.Gamepad_Pause_1:
-                inputAction = playerInputActions.Player.Pause;
-                bindingIndex = 1;
-                break;
+            // case Binding.Gamepad_Interact_1:
+            //     inputAction = playerInputActions.Player.Interact;
+            //     bindingIndex = 1;
+            //     break;
+            // case Binding.Gamepad_InteractAlternate_1:
+            //     inputAction = playerInputActions.Player.InteractAlternate;
+            //     bindingIndex = 1;
+            //     break;
+            // case Binding.Gamepad_Dash_1:
+            //     inputAction = playerInputActions.Player.Dash;
+            //     bindingIndex = 1;
+            //     break;
+            // case Binding.Gamepad_Pause_1:
+            //     inputAction = playerInputActions.Player.Pause;
+            //     bindingIndex = 1;
+            //     break;
 
             //Player 2
             case Binding.Move_Up_2:

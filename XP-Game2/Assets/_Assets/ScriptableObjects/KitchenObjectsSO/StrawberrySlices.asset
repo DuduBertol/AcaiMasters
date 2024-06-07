@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: StrawberrySlices
   m_EditorClassIdentifier: 
   prefab: {fileID: 4509616433724562944, guid: 4fe25450e5c0046499ae325938fcfabe, type: 3}
-  sprite: {fileID: 21300000, guid: a73e94add95fabd46bbe9f15560aa5fd, type: 3}
+  sprite: {fileID: 21300000, guid: 2d94c5a82de2f9a489e9039c40282d9a, type: 3}
   objectName: Strawberry Slices
+  hasRequirement: 1
+  requirementSprite: {fileID: 21300000, guid: 6a7d109fdfbfeca4bbbc285779a047a1, type: 3}

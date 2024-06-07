@@ -16,7 +16,8 @@ public class KitchenGameManager : MonoBehaviour
 
     private enum State
     {
-        WaitingToStart,
+        ShowingControlTutorial,
+        ShowingRecipeTutorial,
         SkinSelection,
         CountdownToStart,
         GamePlaying,
@@ -39,7 +40,7 @@ public class KitchenGameManager : MonoBehaviour
 
     private void Awake() 
     {
-        state = State.WaitingToStart;
+        state = State.ShowingControlTutorial;
         Instance = this;
     }
 
@@ -63,13 +64,19 @@ public class KitchenGameManager : MonoBehaviour
                 state = State.CountdownToStart;
                 OnStateChanged?.Invoke(this, EventArgs.Empty);
             }
-        } 
+        }
 
-        if(state == State.WaitingToStart)
+        if(state == State.ShowingRecipeTutorial)
         {
             state = State.SkinSelection;
             OnStateChanged?.Invoke(this, EventArgs.Empty);
-        } 
+        }
+
+        if(state == State.ShowingControlTutorial)
+        {
+            state = State.ShowingRecipeTutorial;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
     private void GameInput_OnInteractAction_2(object sender, System.EventArgs e)
     {
@@ -86,7 +93,7 @@ public class KitchenGameManager : MonoBehaviour
             }
         }
 
-        if(state == State.WaitingToStart)
+        if(state == State.ShowingControlTutorial)
         {
             state = State.SkinSelection;
             OnStateChanged?.Invoke(this, EventArgs.Empty);
@@ -102,7 +109,9 @@ public class KitchenGameManager : MonoBehaviour
     {
         switch (state)
         {
-            case State.WaitingToStart:
+            case State.ShowingControlTutorial:
+                break;
+            case State.ShowingRecipeTutorial:
                 break;
             case State.SkinSelection:
                 virtualCamera.localPosition = Vector3.Slerp(virtualCamera.position, camPosSkinSelector.position, Time.deltaTime * camSpeed);
@@ -138,6 +147,10 @@ public class KitchenGameManager : MonoBehaviour
     public bool IsSkinSelectionActive()
     {
         return state == State.SkinSelection;
+    }
+    public bool IsRecipeTutorialActive()
+    {
+        return state == State.ShowingRecipeTutorial;
     }
 
     public bool IsCountdownToStartActive()

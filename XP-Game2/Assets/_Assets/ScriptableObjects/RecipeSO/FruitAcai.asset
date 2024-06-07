@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
   - {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
   recipeName: 'Fruit Acai '
+  recipeImage: {fileID: 21300000, guid: ef2e5bd7723fce744adfc70135306b97, type: 3}

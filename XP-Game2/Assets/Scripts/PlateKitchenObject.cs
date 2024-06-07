@@ -74,7 +74,13 @@ public class PlateKitchenObject : KitchenObject
         }
         else
         {
-            kitchenObjectSOList.Add(kitchenObjectSO);
+            if(kitchenObjectSOList.Contains(firstStepKitchenObject) || kitchenObjectSOList.Contains(secondStepKitchenObject) || kitchenObjectSOList.Contains(thirdStepKitchenObject))
+            {
+                return false;
+            }
+            else
+            {
+                kitchenObjectSOList.Add(kitchenObjectSO);
 
                 OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
                 {
@@ -82,6 +88,7 @@ public class PlateKitchenObject : KitchenObject
                 });
 
                 return true;
+            }
         }
     }
 
