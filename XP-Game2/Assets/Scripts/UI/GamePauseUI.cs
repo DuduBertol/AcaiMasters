@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class GamePauseUI : MonoBehaviour
 {
+    public event EventHandler OnButtonClick;
 
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button mainMenuButton;
@@ -15,13 +17,16 @@ public class GamePauseUI : MonoBehaviour
     {
         resumeButton.onClick.AddListener(() => {
             KitchenGameManager.Instance.TogglePauseGame();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });
         mainMenuButton.onClick.AddListener(() => {
             Loader.Load(Loader.Scene.MainMenuScene);
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });
         optionsButton.onClick.AddListener(() => {
             Hide();
             OptionsUI.Instance.Show(Show);
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });
     }
 

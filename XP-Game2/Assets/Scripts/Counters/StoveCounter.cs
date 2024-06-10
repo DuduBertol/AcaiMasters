@@ -125,22 +125,25 @@ public class StoveCounter : BaseCounter, IHasProgress
                 if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) 
                 //Player is holding a plate
                 {
-                    KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
-
-                    if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
-                    //Player carrying something that can be Freezed (Acai)
+                    if(plateKitchenObject.GetKitchenObjectSOList().Count != 0)
                     {
-                        player.GetKitchenObject().SetKitchenObjectParent(this);
+                        KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
 
-                        
-                        fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
+                        if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
+                        //Player carrying something that can be Freezed (Acai)
+                        {
+                            player.GetKitchenObject().SetKitchenObjectParent(this);
 
-                        state = State.Frying;
-                        fryingTimer = 0f;
+                            
+                            fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
 
-                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                            state = state
-                        });
+                            state = State.Frying;
+                            fryingTimer = 0f;
+
+                            OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                                state = state
+                            });
+                        }
                     }
                 }
             }
@@ -204,22 +207,25 @@ public class StoveCounter : BaseCounter, IHasProgress
                 if(playerTwo.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) 
                 //Player is holding a plate
                 {
-                    KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
-
-                    if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
-                    //Player carrying something that can be Freezed (Acai)
+                    if(plateKitchenObject.GetKitchenObjectSOList().Count != 0)
                     {
-                        playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
+                        KitchenObjectSO whichIsInPlateKitchenObject = plateKitchenObject.GetKitchenObjectSOList()[0];
 
-                        
-                        fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
+                        if(HasRecipeWithInput(whichIsInPlateKitchenObject)) 
+                        //Player carrying something that can be Freezed (Acai)
+                        {
+                            playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
 
-                        state = State.Frying;
-                        fryingTimer = 0f;
+                            
+                            fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
 
-                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
-                            state = state
-                        });
+                            state = State.Frying;
+                            fryingTimer = 0f;
+
+                            OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+                                state = state
+                            });
+                        }
                     }
                 }
             }

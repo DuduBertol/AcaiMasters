@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RecipeUI : MonoBehaviour
 {
+    public event EventHandler OnButtonClick;
+
     [SerializeField] private Transform recipeTutorialTransfom;
     [SerializeField] private Transform backgroundTransfom;
     [SerializeField] private bool isEnable;
@@ -24,10 +27,12 @@ public class RecipeUI : MonoBehaviour
         if(isEnable)
         {
             Show();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             Hide();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
     }
     private void GameInput_OnOpenRecipe_2(object sender, System.EventArgs e)
@@ -38,10 +43,12 @@ public class RecipeUI : MonoBehaviour
         if(isEnable)
         {
             Show();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             Hide();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -54,6 +61,7 @@ public class RecipeUI : MonoBehaviour
         if(KitchenGameManager.Instance.IsSkinSelectionActive())
         {
             Hide();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Show()

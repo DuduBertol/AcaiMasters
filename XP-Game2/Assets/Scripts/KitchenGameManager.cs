@@ -51,6 +51,7 @@ public class KitchenGameManager : MonoBehaviour
         GameInput.Instance.OnInteractAction_2 += GameInput_OnInteractAction_2;
     }
 
+
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         if(state == State.SkinSelection)
@@ -93,9 +94,15 @@ public class KitchenGameManager : MonoBehaviour
             }
         }
 
-        if(state == State.ShowingControlTutorial)
+        if(state == State.ShowingRecipeTutorial)
         {
             state = State.SkinSelection;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        if(state == State.ShowingControlTutorial)
+        {
+            state = State.ShowingRecipeTutorial;
             OnStateChanged?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -107,6 +114,7 @@ public class KitchenGameManager : MonoBehaviour
 
     private void Update() 
     {
+
         switch (state)
         {
             case State.ShowingControlTutorial:

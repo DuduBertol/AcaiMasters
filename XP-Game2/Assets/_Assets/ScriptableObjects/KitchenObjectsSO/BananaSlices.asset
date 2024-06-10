@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BananaSlices
   m_EditorClassIdentifier: 
   prefab: {fileID: 4509616433724562944, guid: 911a72e91fd0818408b4533c488b4bc4, type: 3}
-  sprite: {fileID: 21300000, guid: 04ef47f1c6f092444bc2cd2f3957cc43, type: 3}
+  sprite: {fileID: 21300000, guid: 6e7626e5f1066dc499c2d0c0c444cdcf, type: 3}
   objectName: Banana Slices
   hasRequirement: 1
   requirementSprite: {fileID: 21300000, guid: 6a7d109fdfbfeca4bbbc285779a047a1, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AcaiFreezed
   m_EditorClassIdentifier: 
   prefab: {fileID: 4509616433724562944, guid: a88d131844ff1a64e97282120aa89577, type: 3}
-  sprite: {fileID: 21300000, guid: 2ff0e06fb71f42c49bc440a2ebeb6279, type: 3}
+  sprite: {fileID: 21300000, guid: 44704bf912b84e7469853b6315322ee4, type: 3}
   objectName: Acai Freezed
   hasRequirement: 0
   requirementSprite: {fileID: 0}

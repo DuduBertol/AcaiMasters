@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class SkinSelectorUI : MonoBehaviour
 {
+    public event EventHandler OnSumSkinSelection;
+    public event EventHandler OnSubSkinSelection;
+
     [SerializeField] private int playerSkinIndex;
     [SerializeField] private int playerTwoSkinIndex;
     [SerializeField] private TextMeshProUGUI playerSkinNameText;
@@ -68,6 +72,8 @@ public class SkinSelectorUI : MonoBehaviour
     {
         if(KitchenGameManager.Instance.IsSkinSelectionActive())
         {
+            OnSumSkinSelection?.Invoke(this, EventArgs.Empty);
+
             playerSkinIndex++;
             PlayerIndexCheck();
             SkinVisualChanger();
@@ -77,6 +83,8 @@ public class SkinSelectorUI : MonoBehaviour
     {
         if(KitchenGameManager.Instance.IsSkinSelectionActive())
         {
+            OnSubSkinSelection?.Invoke(this, EventArgs.Empty);
+
             playerSkinIndex--;
             PlayerIndexCheck();
             SkinVisualChanger();
@@ -162,52 +170,6 @@ public class SkinSelectorUI : MonoBehaviour
             }
         }
     }
-
-    /* private void HandleSumSub()
-    {
-        if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
-
-        Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalizedPlayerTwo();
-        if((int)inputVector.x == -1 )
-        {
-            playerTwoSkinIndex = 0;
-        }
-        else if((int)inputVector.x == 0 )
-        {
-            playerTwoSkinIndex = 1;
-        }
-        else if((int)inputVector.x == 1 )
-        {
-            playerTwoSkinIndex = 2;
-        }
-        
-        
-        
-        bool canSumSub = false;
-
-        if(inputVector == Vector2.left && canSumSub)
-        {
-            canSumSub = false;
-            playerTwoSkinIndex--;
-            PlayerTwoIndexCheck();
-            SkinVisualChanger();
-        }
-        else
-        {
-            canSumSub = true;
-        }
-        if(inputVector == Vector2.right && canSumSub)
-        {
-            canSumSub = false;
-            playerTwoSkinIndex++;
-            PlayerTwoIndexCheck();
-            SkinVisualChanger();
-        }
-        else
-        {
-            canSumSub = true;
-        }
-    } */
 
     private void Show()
     {

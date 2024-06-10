@@ -16,19 +16,38 @@ public class GameRecipeButtonsUI : MonoBehaviour
 
     private void Start() 
     {
-        GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;    
-        GameInput.Instance.OnInteractAction_2 += GameInput_OnInteractAction_2;    
+        GameInput.Instance.OnOpenRecipe += GameInput_OnOpenRecipe;    
+        GameInput.Instance.OnOpenRecipe_2 += GameInput_OnOpenRecipe_2;
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;    
+        Hide();  
     }
-    private void GameInput_OnInteractAction(object sender, System.EventArgs e)
+    
+    private void GameInput_OnOpenRecipe(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsGamePlaying()) return;
         
         animator.SetTrigger(FIRST_ATTEMPT);
     }
-    private void GameInput_OnInteractAction_2(object sender, System.EventArgs e)
+    private void GameInput_OnOpenRecipe_2(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsGamePlaying()) return;
         
         animator.SetTrigger(FIRST_ATTEMPT);
+    }
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
+    {
+        if(KitchenGameManager.Instance.IsGamePlaying())
+        {
+            Show();
+        }
+    }
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

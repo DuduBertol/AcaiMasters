@@ -15,5 +15,10 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] trash;
     public AudioClip[] warning;
     public AudioClip dash;
-
+    public AudioClip sumSkinSelection;
+    public AudioClip subSkinSelection;
+    public AudioClip checkmark;
+    public AudioClip[] buttonClick;
+    public AudioClip mickeyMiska;
+    
 }

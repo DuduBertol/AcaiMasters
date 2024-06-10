@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MilkPowder
   m_EditorClassIdentifier: 
   prefab: {fileID: 4509616433724562944, guid: b873870f81c7f764fa0b9056205ccdb9, type: 3}
-  sprite: {fileID: 21300000, guid: 93deb4d847693c24495f3529a5115a30, type: 3}
+  sprite: {fileID: 21300000, guid: 2602f541aacba6b429a745615842f377, type: 3}
   objectName: MilkPowder
   hasRequirement: 0
   requirementSprite: {fileID: 0}

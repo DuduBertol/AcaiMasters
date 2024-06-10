@@ -29,6 +29,7 @@ public class GameStartCountdownUI : MonoBehaviour
         if(KitchenGameManager.Instance.IsCountdownToStartActive())
         {
             Show();
+            SoundManager.Instance.PlayMickeySound();
         }
         else
         {
@@ -45,7 +46,7 @@ public class GameStartCountdownUI : MonoBehaviour
         {
             previousCountdownNumber = countdownNumber;
             animator.SetTrigger(NUMBER_POPUP);
-            SoundManager.Instance.PlayCountdownSound();
+            // SoundManager.Instance.PlayCountdownSound();
         }
     }
 

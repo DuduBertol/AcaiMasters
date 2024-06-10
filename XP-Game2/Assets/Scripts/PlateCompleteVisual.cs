@@ -33,6 +33,9 @@ public class PlateCompleteVisual : MonoBehaviour
             if(kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
             {
                 kitchenObjectSOGameObject.gameObject.SetActive(true);
+
+                AudioClip[] audioClipArray = SoundManager.Instance.audioClipRefsSO.objectDrop;
+                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], transform.position, SoundManager.Instance.volume);
             }
         }
     }
@@ -44,6 +47,9 @@ public class PlateCompleteVisual : MonoBehaviour
             if(kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
             {
                 kitchenObjectSOGameObject.gameObject.SetActive(false);
+
+                AudioClip[] audioClipArray = SoundManager.Instance.audioClipRefsSO.chop;
+                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], transform.position, SoundManager.Instance.volume);
             }
         }
     }

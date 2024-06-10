@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class TutorialUI : MonoBehaviour
 {
+    public event EventHandler OnButtonClick;
+
     [SerializeField] private Transform controlTutorialImageTransform; 
 
     [Header("Useless")]
@@ -37,6 +40,7 @@ public class TutorialUI : MonoBehaviour
         if(KitchenGameManager.Instance.IsRecipeTutorialActive())
         {
             Hide();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
     }
 

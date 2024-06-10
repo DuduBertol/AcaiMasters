@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class OptionsUI : MonoBehaviour
 {
+    public event EventHandler OnButtonClick;
+
     public static OptionsUI Instance {get; private set;}
 
     [Header("General")]
@@ -81,14 +83,17 @@ public class OptionsUI : MonoBehaviour
         soundEffectsButton.onClick.AddListener(() => {
             SoundManager.Instance.ChangeVolume();
             UpdateVisual();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });
         musicButton.onClick.AddListener(() => {
             MusicManager.Instance.ChangeVolume();
             UpdateVisual();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });  
         closeButton.onClick.AddListener(() => {
             Hide();
             onCloseButtonAction();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });
 
         //Player 1

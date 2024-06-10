@@ -20,8 +20,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
   - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
   deliverySuccess:
-  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
-  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  - {fileID: 8300000, guid: 277513a7affb8264d846bf81282e8873, type: 3}
   footstep:
   - {fileID: 8300000, guid: 078e15982fce2e147bf06c8a7682f28b, type: 3}
   - {fileID: 8300000, guid: b2d2893ac04fbdb44a226f4b6ea0d271, type: 3}
@@ -41,5 +40,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
   warning:
   - {fileID: 8300000, guid: b90d8099bdbf09a40ab1163556d5b5f4, type: 3}
-  - {fileID: 8300000, guid: b59c98e0066c41f42b8100f5cb180f5b, type: 3}
   dash: {fileID: 8300000, guid: b75c129ff6c606c41a3cef370354d237, type: 3}
+  sumSkinSelection: {fileID: 8300000, guid: 7b3012573bb44c2419b95a7f1e2094d9, type: 3}
+  subSkinSelection: {fileID: 8300000, guid: 24c3a81b6801067479f615af8160637d, type: 3}
+  checkmark: {fileID: 8300000, guid: b7edd579d0ffb9e42a2291dfa015a585, type: 3}
+  buttonClick:
+  - {fileID: 8300000, guid: d4243c68f60ee1e4db06c9fd233516f2, type: 3}
+  - {fileID: 8300000, guid: 05e7ebda57b372f4aa415b1bb634b6cb, type: 3}
+  - {fileID: 8300000, guid: c8f0b8627548b5c498515c90b11e5d23, type: 3}
+  mickeyMiska: {fileID: 8300000, guid: 725a249fb9d17ff41befa59debb79bed, type: 3}
