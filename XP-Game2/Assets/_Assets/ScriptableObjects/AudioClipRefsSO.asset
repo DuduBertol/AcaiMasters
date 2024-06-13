@@ -44,8 +44,5 @@ MonoBehaviour:
   sumSkinSelection: {fileID: 8300000, guid: 7b3012573bb44c2419b95a7f1e2094d9, type: 3}
   subSkinSelection: {fileID: 8300000, guid: 24c3a81b6801067479f615af8160637d, type: 3}
   checkmark: {fileID: 8300000, guid: b7edd579d0ffb9e42a2291dfa015a585, type: 3}
-  buttonClick:
-  - {fileID: 8300000, guid: d4243c68f60ee1e4db06c9fd233516f2, type: 3}
-  - {fileID: 8300000, guid: 05e7ebda57b372f4aa415b1bb634b6cb, type: 3}
-  - {fileID: 8300000, guid: c8f0b8627548b5c498515c90b11e5d23, type: 3}
+  buttonClick: {fileID: 8300000, guid: c8f0b8627548b5c498515c90b11e5d23, type: 3}
   mickeyMiska: {fileID: 8300000, guid: 725a249fb9d17ff41befa59debb79bed, type: 3}

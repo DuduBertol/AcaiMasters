@@ -28,8 +28,8 @@ public class PlayerSounds : MonoBehaviour
 
             if(player.IsWalking())
             {
-                float volume = 1f;
-                SoundManager.Instance.PlayFootstepSound(player.transform.position, volume);
+                float volume = 0.25f;
+                SoundManager.Instance.PlayFootstepSound(SoundManager.Instance.transform.position, volume);//player.transform.position, volume);
             }
             
         }    
@@ -39,7 +39,7 @@ public class PlayerSounds : MonoBehaviour
         if(player.IsWalking())
         {
             float volume = 1f;
-            SoundManager.Instance.PlayDashSound(player.transform.position, volume);
+            SoundManager.Instance.PlayDashSound(SoundManager.Instance.transform.position, volume);//player.transform.position, volume);
         }
     }
 }

@@ -18,7 +18,7 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip sumSkinSelection;
     public AudioClip subSkinSelection;
     public AudioClip checkmark;
-    public AudioClip[] buttonClick;
+    public AudioClip buttonClick;
     public AudioClip mickeyMiska;
     
 }

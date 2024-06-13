@@ -12,13 +12,23 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recipesDeliveredText;
     [SerializeField] private TextMeshProUGUI recipesLostText;
     [SerializeField] private TextMeshProUGUI recipesTotalText;
+
+    
     
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button submitDuoButton;
+
+    
+    [SerializeField] private RectTransform leaderboardRectTransform;
 
     private void Awake() 
     {
         restartButton.onClick.AddListener(() => {
             Loader.Load(Loader.Scene.MainMenuScene);
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
+        });
+        submitDuoButton.onClick.AddListener(() => {
+            PlayfabManager.Instance.Register();
             OnButtonClick?.Invoke(this, EventArgs.Empty);
         });    
     }
@@ -34,11 +44,11 @@ public class GameOverUI : MonoBehaviour
         if(KitchenGameManager.Instance.IsGameOver())
         {
             Show();
-
+            
             recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesAmount().ToString();
 
-            recipesLostText.text = "-" + DeliveryManager.Instance.GetFailedRecipesAmount().ToString();
-            recipesTotalText.text = DeliveryManager.Instance.GetTotalRecipesAmount().ToString();
+            /* recipesLostText.text = "-" + DeliveryManager.Instance.GetFailedRecipesAmount().ToString();
+            recipesTotalText.text = DeliveryManager.Instance.GetTotalRecipesAmount().ToString(); */
         }
         else
         {

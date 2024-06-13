@@ -13,15 +13,18 @@ public class DeliveryManager : MonoBehaviour
 
     public static DeliveryManager Instance { get; private set; }
 
+
+
     public List<float> recipeLifeTimerList;
-    
     public List<Transform> recipeLifeTimerBarList;
     public float recipeLifeTimerMax = 24f;
 
 
     [SerializeField] private RecipeListSO recipeListSO;
-    
     [SerializeField] private Transform recipeLifeTimerBarTemplate;
+
+
+
     private List<RecipeSO> waitingRecipeSOList;
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
