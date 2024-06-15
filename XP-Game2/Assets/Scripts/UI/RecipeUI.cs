@@ -10,6 +10,7 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private Transform recipeTutorialTransfom;
     [SerializeField] private Transform backgroundTransfom;
     [SerializeField] private bool isEnable;
+    [SerializeField] private Transform pressTriangleTextTransform;
 
     private void Start()
     {
@@ -57,16 +58,18 @@ public class RecipeUI : MonoBehaviour
         if(KitchenGameManager.Instance.IsRecipeTutorialActive())
         {
             Show();
+            pressTriangleTextTransform.gameObject.SetActive(true);
         }
         if(KitchenGameManager.Instance.IsSkinSelectionActive())
         {
             Hide();
+            pressTriangleTextTransform.gameObject.SetActive(false);
             OnButtonClick?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Show()
     {
-        LeanTween.moveY(recipeTutorialTransfom.GetComponent<RectTransform>(), 0, 0.5f).setEaseOutBack();
+        LeanTween.moveY(recipeTutorialTransfom.GetComponent<RectTransform>(), 80, 0.5f).setEaseOutBack();
         backgroundTransfom.gameObject.SetActive(true);
     }
     private void Hide()

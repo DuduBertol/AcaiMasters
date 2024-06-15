@@ -58,12 +58,13 @@ MonoBehaviour:
     gameObject: {fileID: 3550707552375629789}
   - kitchenObjectSO: {fileID: 11400000, guid: 64abeb372aa022542a48c4af8b984d64, type: 2}
     gameObject: {fileID: 3611271270719445377}
-  - kitchenObjectSO: {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
-    gameObject: {fileID: 3550707551136013323}
   - kitchenObjectSO: {fileID: 11400000, guid: 69c2c4cef5474ff4ca0d734ee363bb42, type: 2}
     gameObject: {fileID: 3550707552397226385}
+  - kitchenObjectSO: {fileID: 11400000, guid: b43c90a0660a86445a57039bc54fbee4, type: 2}
+    gameObject: {fileID: 3550707551136013323}
   - kitchenObjectSO: {fileID: 11400000, guid: 77c7ffa663d54fa409e485bb03cb33e3, type: 2}
     gameObject: {fileID: 5673689010552445291}
+  gambiarraAcaiFruitGameObject: {fileID: 3801009903343266589}
 --- !u!1001 &24181925769706908
 PrefabInstance:
   m_ObjectHideFlags: 0

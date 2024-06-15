@@ -16,6 +16,7 @@ public class PlayfabManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI duoNameInput;
     [SerializeField] private RectTransform leaderboardRectTransform;
     [SerializeField] private RectTransform submitNameRectTransform;
+    [SerializeField] private GameObject playfabCallbackPrefab;
 
     private void Awake() 
     {
@@ -123,6 +124,7 @@ public class PlayfabManager : MonoBehaviour
     private void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
     {
         GetLeaderboard();
+        Instantiate(playfabCallbackPrefab, this.gameObject.transform);
         Debug.Log("Sucesso ao enviar para a leaderboard");
     }
 

@@ -14,6 +14,7 @@ public class PlateCompleteVisual : MonoBehaviour
 
     [SerializeField] private PlateKitchenObject plateKitchenObject;
     [SerializeField] private List<KitchenObjectSO_GameObject> kitchenObjectSOGameObjectList;
+    [SerializeField] private GameObject gambiarraAcaiFruitGameObject;
 
     private void Start() 
     {
@@ -24,10 +25,12 @@ public class PlateCompleteVisual : MonoBehaviour
         {
             kitchenObjectSOGameObject.gameObject.SetActive(false);
         }
+        // gambiarraAcaiFruitGameObject.SetActive(false);
     }
 
     private void PlateKitchenObject_OnIngredientAdded(object sender, PlateKitchenObject.OnIngredientAddedEventArgs e)
     {
+        
         foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
         {
             if(kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
@@ -40,8 +43,14 @@ public class PlateCompleteVisual : MonoBehaviour
         }
     }
 
+    public void AddPlateToAcai()
+    {
+        gambiarraAcaiFruitGameObject.SetActive(true);
+    }
+
     private void PlateKitchenObject_OnIngredientRemoved(object sender, PlateKitchenObject.OnIngredientRemovedEventArgs e)
     {
+        gambiarraAcaiFruitGameObject.SetActive(false);
         foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
         {
             if(kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)

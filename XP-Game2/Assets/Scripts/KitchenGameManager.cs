@@ -49,9 +49,26 @@ public class KitchenGameManager : MonoBehaviour
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
         GameInput.Instance.OnInteractAction_2 += GameInput_OnInteractAction_2;
+        GameInput.Instance.OnOpenRecipe += GameInput_OnOpenRecipe;
+        GameInput.Instance.OnOpenRecipe_2 += GameInput_OnOpenRecipe_2;
     }
 
-
+    private void GameInput_OnOpenRecipe(object sender, System.EventArgs e)
+    {
+        if(state == State.ShowingRecipeTutorial)
+        {
+            state = State.SkinSelection;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
+    private void GameInput_OnOpenRecipe_2(object sender, System.EventArgs e)
+    {
+        if(state == State.ShowingRecipeTutorial)
+        {
+            state = State.SkinSelection;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         if(state == State.SkinSelection)
@@ -65,12 +82,6 @@ public class KitchenGameManager : MonoBehaviour
                 state = State.CountdownToStart;
                 OnStateChanged?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        if(state == State.ShowingRecipeTutorial)
-        {
-            state = State.SkinSelection;
-            OnStateChanged?.Invoke(this, EventArgs.Empty);
         }
 
         if(state == State.ShowingControlTutorial)
@@ -92,12 +103,6 @@ public class KitchenGameManager : MonoBehaviour
                 state = State.CountdownToStart;
                 OnStateChanged?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        if(state == State.ShowingRecipeTutorial)
-        {
-            state = State.SkinSelection;
-            OnStateChanged?.Invoke(this, EventArgs.Empty);
         }
 
         if(state == State.ShowingControlTutorial)

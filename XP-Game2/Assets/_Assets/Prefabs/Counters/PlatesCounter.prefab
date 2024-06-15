@@ -211,6 +211,10 @@ MonoBehaviour:
   counterTopPoint: {fileID: 3781238564155282056}
   plateKitchenObjectSO: {fileID: 11400000, guid: 21d81ad5c6d715e4fb743ace19cfbfc7,
     type: 2}
+  firstStepKitchenObjectSO: {fileID: 11400000, guid: a1436dbda0a31b442951469c3cdbd7c5,
+    type: 2}
+  spawnPlateTimerMax: 0
+  platesSpawnedAmountMax: 0
 --- !u!4 &7845350899138249686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5676961876369741709, guid: 53a3763a38ba18e46a67694afe7d2545,

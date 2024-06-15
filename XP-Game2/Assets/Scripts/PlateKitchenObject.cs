@@ -19,10 +19,12 @@ public class PlateKitchenObject : KitchenObject
 
 
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;
-    [SerializeField] private KitchenObjectSO firstStepKitchenObject; // Acai Fruta
+    public KitchenObjectSO firstStepKitchenObject; // Acai Fruta
     [SerializeField] private KitchenObjectSO secondStepKitchenObject; //Acai Gelado
     [SerializeField] private KitchenObjectSO thirdStepKitchenObject; //Acai Congelado
 
+    [SerializeField] private PlateCompleteVisual bowlCompleteVisual;
+    [SerializeField] private PlateIconsUI plateIconsUI;
     [SerializeField] private List<KitchenObjectSO> kitchenObjectSOList;
 
     private void Awake() 
@@ -68,6 +70,7 @@ public class PlateKitchenObject : KitchenObject
                     kitchenObjectSO = kitchenObjectSO
                 });
 
+                
                 return true;
             }
             return false;
@@ -80,14 +83,32 @@ public class PlateKitchenObject : KitchenObject
             }
             else
             {
-                kitchenObjectSOList.Add(kitchenObjectSO);
-
-                OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                if(kitchenObjectSO == firstStepKitchenObject)
                 {
-                    kitchenObjectSO = kitchenObjectSO
-                });
+                    kitchenObjectSOList.Add(kitchenObjectSO);
 
-                return true;
+                    OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                    {
+                        kitchenObjectSO = kitchenObjectSO // teoricamente não ta chamando esse evento
+                    });
+                    if(OnIngredientAdded == null)
+                    {
+                        bowlCompleteVisual.AddPlateToAcai(); //ADICIONAR VISUAL
+                        plateIconsUI.AddPlateToAcai();//ADICIONAR ICON
+                    }
+                    return true;
+                }
+                else
+                {
+                    kitchenObjectSOList.Add(kitchenObjectSO);
+
+                    OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
+                    {
+                        kitchenObjectSO = kitchenObjectSO
+                    });
+
+                    return true;
+                }
             }
         }
     }

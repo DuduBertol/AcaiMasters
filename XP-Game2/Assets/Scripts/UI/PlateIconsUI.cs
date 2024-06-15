@@ -26,6 +26,10 @@ public class PlateIconsUI : MonoBehaviour
     {
         UpdateVisual();
     }
+    public void AddPlateToAcai()
+    {
+        UpdateVisual();
+    }
 
     private void UpdateVisual() 
     {
