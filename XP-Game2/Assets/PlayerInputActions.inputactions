@@ -148,6 +148,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenDevConsole",
+                    "type": "Button",
+                    "id": "902d18b0-49ef-4c0d-bfea-7498dbc35a5d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GetLeaderboard",
+                    "type": "Button",
+                    "id": "c8c83fe3-0e62-436e-a010-f2d457be3547",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SubmitLeaderboard",
+                    "type": "Button",
+                    "id": "3ece6d64-df2e-4aad-8d46-398e258b22ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -418,11 +445,44 @@
                 {
                     "name": "",
                     "id": "29da6103-260d-41b1-a306-0194e9f223ed",
-                    "path": "<Keyboard>/semicolon",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "OpenRecipe_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f87aaf38-3ff8-4f93-9fa5-2e5a1e85d235",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenDevConsole",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba6cc0c1-011f-4c01-89fa-94b995dc55cf",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GetLeaderboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8bc3feb-9580-4636-a8ef-aa4e31cab4b2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubmitLeaderboard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

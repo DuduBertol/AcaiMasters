@@ -17,6 +17,7 @@ public class GameOverUI : MonoBehaviour
     
     [SerializeField] private Button restartButton;
     [SerializeField] private Button submitDuoButton;
+    [SerializeField] private Button reloadLeaderboardButton;
 
     
     [SerializeField] private RectTransform leaderboardRectTransform;
@@ -30,13 +31,38 @@ public class GameOverUI : MonoBehaviour
         submitDuoButton.onClick.AddListener(() => {
             PlayfabManager.Instance.Register();
             OnButtonClick?.Invoke(this, EventArgs.Empty);
+        });
+        reloadLeaderboardButton.onClick.AddListener(() => {
+            PlayfabManager.Instance.GetLeaderboard();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
         });    
     }
     private void Start() 
     {
         KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
 
+        GameInput.Instance.OnGetLeaderboardAction += GameInput_OnGetLeaderboardAction;
+        GameInput.Instance.OnSubmitLeaderboardAction += GameInput_OnSubmitLeaderboardAction;
+
         Hide();
+    }
+
+    private void GameInput_OnGetLeaderboardAction(object sender, System.EventArgs e)
+    {
+        if(KitchenGameManager.Instance.IsGameOver())
+        {
+            PlayfabManager.Instance.GetLeaderboard();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    private void GameInput_OnSubmitLeaderboardAction(object sender, System.EventArgs e)
+    {
+        if(KitchenGameManager.Instance.IsGameOver())
+        {
+            PlayfabManager.Instance.Register();
+            OnButtonClick?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)

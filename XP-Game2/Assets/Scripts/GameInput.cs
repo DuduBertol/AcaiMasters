@@ -25,6 +25,9 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnSumSkinSelectAction;
     public event EventHandler OnSubSkinSelectAction_2;
     public event EventHandler OnSumSkinSelectAction_2;
+    public event EventHandler OnOpenDevConsoleAction;
+    public event EventHandler OnGetLeaderboardAction;
+    public event EventHandler OnSubmitLeaderboardAction;
     
     public event EventHandler OnBindingRebind;
 
@@ -81,6 +84,9 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SubSkinSelect.performed += SubSkinSelect_performed;
 
         playerInputActions.Player.Pause.performed += Pause_performed;
+        playerInputActions.Player.OpenDevConsole.performed += OpenDevConsole_performed;
+        playerInputActions.Player.GetLeaderboard.performed += GetLeaderboard_performed;
+        playerInputActions.Player.SubmitLeaderboard.performed += SubmitLeaderboard_performed;
 
         playerInputActions.Player.Interact_2.performed += Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed += InteractAlternate_performed_2;
@@ -101,6 +107,9 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.SubSkinSelect.performed -= SubSkinSelect_performed;
 
         playerInputActions.Player.Pause.performed -= Pause_performed;
+        playerInputActions.Player.OpenDevConsole.performed -= OpenDevConsole_performed;
+        playerInputActions.Player.GetLeaderboard.performed -= GetLeaderboard_performed;
+        playerInputActions.Player.SubmitLeaderboard.performed -= SubmitLeaderboard_performed;
 
         playerInputActions.Player.Interact_2.performed -= Interact_performed_2;
         playerInputActions.Player.InteractAlternate_2.performed -= InteractAlternate_performed_2;
@@ -112,7 +121,18 @@ public class GameInput : MonoBehaviour
         playerInputActions.Dispose();
     }
 
-    
+    private void OpenDevConsole_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnOpenDevConsoleAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void SubmitLeaderboard_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnSubmitLeaderboardAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void GetLeaderboard_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnGetLeaderboardAction?.Invoke(this, EventArgs.Empty);
+    }
     private void OpenRecipe_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnOpenRecipe?.Invoke(this, EventArgs.Empty);

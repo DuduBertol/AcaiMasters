@@ -8,8 +8,8 @@ public class GamePlayingClockUI : MonoBehaviour
 {
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI timerText;
-    private string secondString;
-    private string minuteString;
+    /* private string secondString;
+    private string minuteString; */
 
     private void Start() 
     {
@@ -24,7 +24,7 @@ public class GamePlayingClockUI : MonoBehaviour
         // GetTimerSecToMinutes();
     }
 
-    public void GetTimerSecToMinutes()
+    /* public void GetTimerSecToMinutes()
     {
         float gamePlayingTimer = KitchenGameManager.Instance.GetGamePlayingTimerNormalized();
         
@@ -34,7 +34,7 @@ public class GamePlayingClockUI : MonoBehaviour
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         timerText.text = niceTime;
-    }
+    } */
 
     private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
     {

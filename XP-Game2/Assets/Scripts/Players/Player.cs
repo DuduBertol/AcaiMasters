@@ -246,7 +246,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
-        //Anim Grab Item
 
         if(kitchenObject != null)
         {

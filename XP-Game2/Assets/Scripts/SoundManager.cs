@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private GamePauseUI gamePauseUI;
     [SerializeField] private OptionsUI optionsUI;
     [SerializeField] private GameOverUI gameOverUI;
+    [SerializeField] AudioSource musicMainAudioSource;
     [SerializeField] AudioSource audioSourceUI;
 
     public AudioClipRefsSO audioClipRefsSO;
@@ -39,6 +40,7 @@ public class SoundManager : MonoBehaviour
         GameInput.Instance.OnSubSkinSelectAction_2 += GameInput_OnSubSkinSelectAction_2;
 
         KitchenGameManager.Instance.OnGetReady += KitchenGameManager_OnGetReady;
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
 
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
@@ -48,116 +50,117 @@ public class SoundManager : MonoBehaviour
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
         
+        musicMainAudioSource.clip = audioClipRefsSO.mainMenuMusic;
+        musicMainAudioSource.Play();
+    }
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
+    {
+        if(KitchenGameManager.Instance.IsGamePlaying())
+        {
+            musicMainAudioSource.clip = audioClipRefsSO.mainMusic;
+            musicMainAudioSource.Play();
+        }
     }
 
     private void TutorialUI_OnButtonClick(object sender, System.EventArgs e)
     {
-        // PlaySound(audioClipRefsSO.buttonClick, transform.position, volume);
         PlaySoundUI(audioClipRefsSO.buttonClick);
     }
     private void RecipeUI_OnButtonClick(object sender, System.EventArgs e)
     {
-        // PlaySound(audioClipRefsSO.buttonClick, transform.position, volume);
         PlaySoundUI(audioClipRefsSO.buttonClick);
     }
     private void GamePauseUI_OnButtonClick(object sender, System.EventArgs e)
     {
-        // PlaySound(audioClipRefsSO.buttonClick, transform.position, volume);
         PlaySoundUI(audioClipRefsSO.buttonClick);
     }
     private void OptionsUI_OnButtonClick(object sender, System.EventArgs e)
     {
-        // PlaySound(audioClipRefsSO.buttonClick, transform.position, volume);
         PlaySoundUI(audioClipRefsSO.buttonClick);
     }
     private void GameOverUI_OnButtonClick(object sender, System.EventArgs e)
     {
-        // PlaySound(audioClipRefsSO.buttonClick, transform.position, volume);
         PlaySoundUI(audioClipRefsSO.buttonClick);
     }
     private void KitchenGameManager_OnGetReady(object sender, System.EventArgs e)
     {
         if(KitchenGameManager.Instance.GetIsPlayerReady())
         {
-            // PlaySound(audioClipRefsSO.checkmark, transform.position, volume);
             PlaySoundUI(audioClipRefsSO.checkmark);
         }
         else
         {
-            // PlaySound(audioClipRefsSO.checkmark, transform.position, volume);
             PlaySoundUI(audioClipRefsSO.checkmark);
         }
         if(KitchenGameManager.Instance.GetIsPlayerTwoReady())
         {
-            // PlaySound(audioClipRefsSO.checkmark, transform.position, volume);
             PlaySoundUI(audioClipRefsSO.checkmark);
         }
         else
         {
-            // PlaySound(audioClipRefsSO.checkmark, transform.position, volume);
             PlaySoundUI(audioClipRefsSO.checkmark);
         }
     }
     private void GameInput_OnSumSkinSelectAction(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
-        // PlaySound(audioClipRefsSO.sumSkinSelection, transform.position);
+
         PlaySoundUI(audioClipRefsSO.subSkinSelection);
     }
     private void GameInput_OnSubSkinSelectAction(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
-        // PlaySound(audioClipRefsSO.subSkinSelection, transform.position);
+
         PlaySoundUI(audioClipRefsSO.subSkinSelection);
     }
     private void GameInput_OnSumSkinSelectAction_2(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
-        // PlaySound(audioClipRefsSO.sumSkinSelection, transform.position, volume);
+
         PlaySoundUI(audioClipRefsSO.subSkinSelection);
     }
     private void GameInput_OnSubSkinSelectAction_2(object sender, System.EventArgs e)
     {
         if(!KitchenGameManager.Instance.IsSkinSelectionActive()) return;
-        // PlaySound(audioClipRefsSO.subSkinSelection, transform.position, volume);
+
         PlaySoundUI(audioClipRefsSO.subSkinSelection);
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
     {
         TrashCounter trashCounter = sender as TrashCounter;
-        PlaySound(audioClipRefsSO.trash, transform.position, volume);//trashCounter.transform.position);
+        PlaySound(audioClipRefsSO.trash, transform.position, volume);
     }
     
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
     {
         BaseCounter baseCounter = sender as BaseCounter;
-        PlaySound(audioClipRefsSO.objectDrop, transform.position, volume);//baseCounter.transform.position);
+        PlaySound(audioClipRefsSO.objectDrop, transform.position, volume);
     }
 
     private void Player_OnPickedSomething(object sender, System.EventArgs e)
     {
-        PlaySound(audioClipRefsSO.objectPickup, transform.position, volume);//Player.Instance.transform.position, volume);
+        PlaySound(audioClipRefsSO.objectPickup, transform.position, volume);
     }
     private void PlayerTwo_OnPickedSomething(object sender, System.EventArgs e)
     {
-        PlaySound(audioClipRefsSO.objectPickup, transform.position, volume);//PlayerTwo.Instance.transform.position);
+        PlaySound(audioClipRefsSO.objectPickup, transform.position, volume);
     }
     private void CuttingCounter_OnAnyCut(object sender, System.EventArgs e)
     {
         CuttingCounter cuttingCounter = sender as CuttingCounter;
-        PlaySound(audioClipRefsSO.chop, transform.position, volume);//cuttingCounter.transform.position, volume);
+        PlaySound(audioClipRefsSO.chop, transform.position, volume);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e)
     {
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipRefsSO.deliverySuccess, transform.position, volume);//deliveryCounter.transform.position, volume);
+        PlaySound(audioClipRefsSO.deliverySuccess, transform.position, volume);
     }
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
     {
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipRefsSO.deliveryFail, transform.position, volume);//deliveryCounter.transform.position, volume);
+        PlaySound(audioClipRefsSO.deliveryFail, transform.position, volume);
     }
 
 

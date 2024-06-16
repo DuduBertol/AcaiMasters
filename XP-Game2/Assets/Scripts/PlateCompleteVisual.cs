@@ -25,7 +25,6 @@ public class PlateCompleteVisual : MonoBehaviour
         {
             kitchenObjectSOGameObject.gameObject.SetActive(false);
         }
-        // gambiarraAcaiFruitGameObject.SetActive(false);
     }
 
     private void PlateKitchenObject_OnIngredientAdded(object sender, PlateKitchenObject.OnIngredientAddedEventArgs e)
@@ -38,7 +37,7 @@ public class PlateCompleteVisual : MonoBehaviour
                 kitchenObjectSOGameObject.gameObject.SetActive(true);
 
                 AudioClip[] audioClipArray = SoundManager.Instance.audioClipRefsSO.objectDrop;
-                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], transform.position, SoundManager.Instance.volume);
+                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], SoundManager.Instance.transform.position, SoundManager.Instance.volume);
             }
         }
     }
@@ -51,6 +50,7 @@ public class PlateCompleteVisual : MonoBehaviour
     private void PlateKitchenObject_OnIngredientRemoved(object sender, PlateKitchenObject.OnIngredientRemovedEventArgs e)
     {
         gambiarraAcaiFruitGameObject.SetActive(false);
+        
         foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
         {
             if(kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
@@ -58,7 +58,7 @@ public class PlateCompleteVisual : MonoBehaviour
                 kitchenObjectSOGameObject.gameObject.SetActive(false);
 
                 AudioClip[] audioClipArray = SoundManager.Instance.audioClipRefsSO.chop;
-                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], transform.position, SoundManager.Instance.volume);
+                AudioSource.PlayClipAtPoint(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], SoundManager.Instance.transform.position, SoundManager.Instance.volume);
             }
         }
     }

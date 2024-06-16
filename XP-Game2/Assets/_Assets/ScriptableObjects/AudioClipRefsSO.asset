@@ -46,3 +46,5 @@ MonoBehaviour:
   checkmark: {fileID: 8300000, guid: b7edd579d0ffb9e42a2291dfa015a585, type: 3}
   buttonClick: {fileID: 8300000, guid: c8f0b8627548b5c498515c90b11e5d23, type: 3}
   mickeyMiska: {fileID: 8300000, guid: 725a249fb9d17ff41befa59debb79bed, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: fd379857c0232b848a7bf361187359b1, type: 3}
+  mainMusic: {fileID: 8300000, guid: 8673454e5ab954448a4d124d3c9ffe88, type: 3}

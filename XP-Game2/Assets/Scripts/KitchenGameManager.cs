@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
 {
+    private const string GAME_PLAYING_TIMER_MAX = "GamePlayingTimerMax";
+
     public static KitchenGameManager Instance {get; private set;}
 
     public event EventHandler OnStateChanged;
@@ -23,36 +25,49 @@ public class KitchenGameManager : MonoBehaviour
         GamePlaying,
         GameOver,
     }
-
     [SerializeField] private State state;
+
+
+    public float gamePlayingTimerMax; 
+    public float gamePlayingTimer; 
+
 
     [SerializeField] private Transform virtualCamera;
     [SerializeField] private Transform camPosGame;
     [SerializeField] private Transform camPosSkinSelector;
     [SerializeField] private float camSpeed;
-    [SerializeField] private float gamePlayingTimerMax; 
-    [SerializeField] private float gamePlayingTimer; 
-    private float countdownToStartTimer = 3f;
-    private bool isGamePaused = false;
     [SerializeField] private bool isPlayerReady;
     [SerializeField] private bool isPlayerTwoReady;
+
+
+    private float countdownToStartTimer = 3f;
+    private bool isGamePaused = false;
 
 
     private void Awake() 
     {
         state = State.ShowingControlTutorial;
         Instance = this;
+
+        if(PlayerPrefs.GetFloat(GAME_PLAYING_TIMER_MAX) == 0)
+        {
+            float defaultTime = 180;
+            PlayerPrefs.SetFloat(GAME_PLAYING_TIMER_MAX, defaultTime);
+        }
+        
+        gamePlayingTimerMax = PlayerPrefs.GetFloat(GAME_PLAYING_TIMER_MAX);
     }
 
     private void Start() 
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+        
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
         GameInput.Instance.OnInteractAction_2 += GameInput_OnInteractAction_2;
         GameInput.Instance.OnOpenRecipe += GameInput_OnOpenRecipe;
         GameInput.Instance.OnOpenRecipe_2 += GameInput_OnOpenRecipe_2;
     }
-
+    
     private void GameInput_OnOpenRecipe(object sender, System.EventArgs e)
     {
         if(state == State.ShowingRecipeTutorial)
@@ -219,5 +234,9 @@ public class KitchenGameManager : MonoBehaviour
     public bool GetIsPlayerTwoReady()
     {
         return isPlayerTwoReady;
+    }
+    public void SetGamePlayingTimerMaxPlayerPrefs(float gamePlayingTimer)
+    {
+        PlayerPrefs.SetFloat(GAME_PLAYING_TIMER_MAX, gamePlayingTimer);
     }
 }

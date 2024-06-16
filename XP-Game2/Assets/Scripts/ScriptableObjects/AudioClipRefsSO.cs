@@ -20,5 +20,7 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip checkmark;
     public AudioClip buttonClick;
     public AudioClip mickeyMiska;
+    public AudioClip mainMenuMusic;
+    public AudioClip mainMusic;
     
 }

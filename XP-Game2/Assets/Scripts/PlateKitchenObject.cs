@@ -89,7 +89,7 @@ public class PlateKitchenObject : KitchenObject
 
                     OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs
                     {
-                        kitchenObjectSO = kitchenObjectSO // teoricamente não ta chamando esse evento
+                        kitchenObjectSO = kitchenObjectSO
                     });
                     if(OnIngredientAdded == null)
                     {

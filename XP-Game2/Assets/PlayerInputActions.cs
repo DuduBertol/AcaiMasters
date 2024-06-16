@@ -170,6 +170,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenDevConsole"",
+                    ""type"": ""Button"",
+                    ""id"": ""902d18b0-49ef-4c0d-bfea-7498dbc35a5d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetLeaderboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8c83fe3-0e62-436e-a010-f2d457be3547"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SubmitLeaderboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ece6d64-df2e-4aad-8d46-398e258b22ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -440,11 +467,44 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""29da6103-260d-41b1-a306-0194e9f223ed"",
-                    ""path"": ""<Keyboard>/semicolon"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""OpenRecipe_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f87aaf38-3ff8-4f93-9fa5-2e5a1e85d235"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenDevConsole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba6cc0c1-011f-4c01-89fa-94b995dc55cf"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetLeaderboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8bc3feb-9580-4636-a8ef-aa4e31cab4b2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubmitLeaderboard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -471,6 +531,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SubSkinSelect_2 = m_Player.FindAction("SubSkinSelect_2", throwIfNotFound: true);
         m_Player_OpenRecipe = m_Player.FindAction("OpenRecipe", throwIfNotFound: true);
         m_Player_OpenRecipe_2 = m_Player.FindAction("OpenRecipe_2", throwIfNotFound: true);
+        m_Player_OpenDevConsole = m_Player.FindAction("OpenDevConsole", throwIfNotFound: true);
+        m_Player_GetLeaderboard = m_Player.FindAction("GetLeaderboard", throwIfNotFound: true);
+        m_Player_SubmitLeaderboard = m_Player.FindAction("SubmitLeaderboard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -548,6 +611,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SubSkinSelect_2;
     private readonly InputAction m_Player_OpenRecipe;
     private readonly InputAction m_Player_OpenRecipe_2;
+    private readonly InputAction m_Player_OpenDevConsole;
+    private readonly InputAction m_Player_GetLeaderboard;
+    private readonly InputAction m_Player_SubmitLeaderboard;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -568,6 +634,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SubSkinSelect_2 => m_Wrapper.m_Player_SubSkinSelect_2;
         public InputAction @OpenRecipe => m_Wrapper.m_Player_OpenRecipe;
         public InputAction @OpenRecipe_2 => m_Wrapper.m_Player_OpenRecipe_2;
+        public InputAction @OpenDevConsole => m_Wrapper.m_Player_OpenDevConsole;
+        public InputAction @GetLeaderboard => m_Wrapper.m_Player_GetLeaderboard;
+        public InputAction @SubmitLeaderboard => m_Wrapper.m_Player_SubmitLeaderboard;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -625,6 +694,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenRecipe_2.started += instance.OnOpenRecipe_2;
             @OpenRecipe_2.performed += instance.OnOpenRecipe_2;
             @OpenRecipe_2.canceled += instance.OnOpenRecipe_2;
+            @OpenDevConsole.started += instance.OnOpenDevConsole;
+            @OpenDevConsole.performed += instance.OnOpenDevConsole;
+            @OpenDevConsole.canceled += instance.OnOpenDevConsole;
+            @GetLeaderboard.started += instance.OnGetLeaderboard;
+            @GetLeaderboard.performed += instance.OnGetLeaderboard;
+            @GetLeaderboard.canceled += instance.OnGetLeaderboard;
+            @SubmitLeaderboard.started += instance.OnSubmitLeaderboard;
+            @SubmitLeaderboard.performed += instance.OnSubmitLeaderboard;
+            @SubmitLeaderboard.canceled += instance.OnSubmitLeaderboard;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -677,6 +755,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenRecipe_2.started -= instance.OnOpenRecipe_2;
             @OpenRecipe_2.performed -= instance.OnOpenRecipe_2;
             @OpenRecipe_2.canceled -= instance.OnOpenRecipe_2;
+            @OpenDevConsole.started -= instance.OnOpenDevConsole;
+            @OpenDevConsole.performed -= instance.OnOpenDevConsole;
+            @OpenDevConsole.canceled -= instance.OnOpenDevConsole;
+            @GetLeaderboard.started -= instance.OnGetLeaderboard;
+            @GetLeaderboard.performed -= instance.OnGetLeaderboard;
+            @GetLeaderboard.canceled -= instance.OnGetLeaderboard;
+            @SubmitLeaderboard.started -= instance.OnSubmitLeaderboard;
+            @SubmitLeaderboard.performed -= instance.OnSubmitLeaderboard;
+            @SubmitLeaderboard.canceled -= instance.OnSubmitLeaderboard;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -712,5 +799,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSubSkinSelect_2(InputAction.CallbackContext context);
         void OnOpenRecipe(InputAction.CallbackContext context);
         void OnOpenRecipe_2(InputAction.CallbackContext context);
+        void OnOpenDevConsole(InputAction.CallbackContext context);
+        void OnGetLeaderboard(InputAction.CallbackContext context);
+        void OnSubmitLeaderboard(InputAction.CallbackContext context);
     }
 }

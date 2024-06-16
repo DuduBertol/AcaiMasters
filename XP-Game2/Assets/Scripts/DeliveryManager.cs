@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+    private const string RECIPE_LIFE_TIMER_MAX = "RecipeLifeTimerMax";
     
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
@@ -17,7 +18,7 @@ public class DeliveryManager : MonoBehaviour
 
     public List<float> recipeLifeTimerList;
     public List<Transform> recipeLifeTimerBarList;
-    public float recipeLifeTimerMax = 24f;
+    public float recipeLifeTimerMax;
 
 
     [SerializeField] private RecipeListSO recipeListSO;
@@ -38,6 +39,14 @@ public class DeliveryManager : MonoBehaviour
 
         waitingRecipeSOList = new List<RecipeSO>();
         recipeLifeTimerList = new List<float>();
+
+        if(PlayerPrefs.GetFloat(RECIPE_LIFE_TIMER_MAX) == 0)
+        {
+            float defaultTime = 80;
+            PlayerPrefs.SetFloat(RECIPE_LIFE_TIMER_MAX, defaultTime);
+        }
+
+        recipeLifeTimerMax = PlayerPrefs.GetFloat(RECIPE_LIFE_TIMER_MAX);
     }
     
     private void Update() {
@@ -149,5 +158,9 @@ public class DeliveryManager : MonoBehaviour
         }
     }
 
+    public void SetRecipeLifeTimerMaxPlayerPrefs(float recipeLifeTimerMax)
+    {
+        PlayerPrefs.SetFloat(RECIPE_LIFE_TIMER_MAX, recipeLifeTimerMax);
+    }
     
 }
