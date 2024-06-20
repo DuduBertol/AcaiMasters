@@ -1,4 +1,5 @@
-# AÇAÍ MASTERS
+# 🍨 AÇAÍ MASTERS
+![AvailableOnItchIo](https://github.com/DuduBertol/XP-Game2/assets/88258208/2c50c005-2578-4309-8e50-07a46dc0fcf7)
 <h2>🍨&nbsp; <a href="https://dudubertoldev.itch.io/acai-masters" target="_blank">PLAY NOW!</a></h2>
 <blockquote><strong>The Masterchefs were called to make Açaí Recipes for Mickey Mouse at his house...<br></strong></blockquote>
 <ul><li><strong>Are you in!?&nbsp;</strong></li></ul>
@@ -10,7 +11,7 @@
 <table><tbody><tr><td><strong>Game Version</strong></td><td><strong>Player 1</strong></td><td><strong>Player 2</strong></td></tr><tr><td><strong>Official Release</strong>&nbsp;(v1.2)<strong></strong></td><td>Keyboard or Gamepad</td><td>Keyboard</td></tr><tr><td><strong>JoyToKey Compatible</strong> (v1.1)<br><em>(can play&nbsp;Gamepad, if rebind on App)</em></td><td>Keyboard&nbsp;</td><td>Keyboard&nbsp;</td></tr></tbody></table>
 <p><strong><em>Tips for play&nbsp;with GAMEPAD</em></strong> &nbsp;&gt;&gt;&gt; This game is compatible with&nbsp;"<a href="https://joytokey.net/en/download" target="_blank"> JoyToKey</a> " app.</p>
 <p><br></p>
-<h2>🍨&nbsp; <a href="https://youtu.be/7LJ7OE8FGKo" target="_blank">FULL GAMEPLAY HERE!</a></h2>
+<h2>🍨&nbsp; <a href="https://youtu.be/7LJ7OE8FGKo" target="_blank">FULL GAMEPLAY HERE! - YT</a></h2>
 <p><br></p>
 <p>A game developed by 4 Eminens on Unity 3D.</p>
 <p>We are 4 game development students from PUCPR, Brazil.</p>
