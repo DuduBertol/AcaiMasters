@@ -10,7 +10,7 @@
 <p><strong><em>Tips for play&nbsp;with GAMEPAD</em></strong> &nbsp;&gt;&gt;&gt; This game is compatible with&nbsp;"<a href="https://joytokey.net/en/download" target="_blank"> JoyToKey</a> " app.</p>
 <p><br></p>
 <h2>🍨&nbsp; <a href="https://youtu.be/7LJ7OE8FGKo" target="_blank">FULL GAMEPLAY HERE!</a></h2>
-<iframe frameborder="0" src="https://itch.io/embed/2749387?bg_color=1f6dbe&fg_color=ffffff&link_color=be5bfa" width="552" height="167"><a href="https://dudubertoldev.itch.io/acai-masters">Açaí Masters 🍨 by DuduBertolDev, TucaTeCutuca</a></iframe>
+<iframe frameborder="0" src="https://itch.io/embed/2749387?border_width=5&amp;bg_color=005ae3&amp;fg_color=ffffff&amp;link_color=9f11c2" width="560" height="175"><a href="https://dudubertoldev.itch.io/acai-masters">Açaí Masters 🍨 by DuduBertolDev, TucaTeCutuca, kaiubi246, ITKamy</a></iframe>
 <p><br></p>
 <p>A game developed by 4 Eminens on Unity 3D.</p>
 <p>We are 4 game development students from PUCPR, Brazil.</p>
