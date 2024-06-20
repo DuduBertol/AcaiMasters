@@ -14,6 +14,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public static Player Instance { get; private set; }
 
 
+    public event EventHandler OnFirstInteractAcaiFruit;
+
     public event EventHandler OnPickedSomething;
     public event EventHandler OnDash;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
@@ -85,6 +87,15 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             selectedCounter.Interact(this);
         }
+
+        if(!KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit())
+        {
+            if(GetKitchenObject().GetKitchenObjectSO() == KitchenGameManager.Instance.GetAcaiFruitKitchenObjectSO())
+            {
+                KitchenGameManager.Instance.SetWasPlayerFirstInteractedAcaiFruit(true);
+                OnFirstInteractAcaiFruit?.Invoke(this, EventArgs.Empty);
+            }
+        }     
     }
     private void GameInput_OnDashAction(object sender, System.EventArgs e)
     {

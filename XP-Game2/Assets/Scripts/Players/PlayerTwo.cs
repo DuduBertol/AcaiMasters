@@ -13,6 +13,7 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
     //Static pertence a classe
     public static PlayerTwo Instance { get; private set; }
 
+    public event EventHandler OnFirstInteractAcaiFruit;
 
     public event EventHandler OnPickedSomething;
     public event EventHandler OnDash_2;
@@ -85,6 +86,15 @@ public class PlayerTwo : MonoBehaviour, IKitchenObjectParent
         {
             selectedCounter.Interact_2(this);
         }
+
+        if(!KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit())
+        {
+            if(GetKitchenObject().GetKitchenObjectSO() == KitchenGameManager.Instance.GetAcaiFruitKitchenObjectSO())
+            {
+                KitchenGameManager.Instance.SetWasPlayerFirstInteractedAcaiFruit(true);
+                OnFirstInteractAcaiFruit?.Invoke(this, EventArgs.Empty);
+            }
+        } 
     }
     private void GameInput_OnDashAction_2(object sender, System.EventArgs e)
     {

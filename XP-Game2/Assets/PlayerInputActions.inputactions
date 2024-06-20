@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "OpenRecipe",
+                    "type": "Button",
+                    "id": "ec9e0a2d-1441-4221-9a97-6155827fabf8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SumSkinSelect",
                     "type": "Button",
                     "id": "7c19386a-9047-45ea-9a14-5eac4c50b45f",
@@ -105,9 +114,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause_2",
+                    "name": "OpenRecipe_2",
                     "type": "Button",
-                    "id": "48d72a0e-27a7-4b87-8bdf-9869d6f3eb43",
+                    "id": "bd6d2258-cc39-498a-b2ea-f3cf53405ad7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -132,18 +141,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OpenRecipe",
+                    "name": "Pause_2",
                     "type": "Button",
-                    "id": "ec9e0a2d-1441-4221-9a97-6155827fabf8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenRecipe_2",
-                    "type": "Button",
-                    "id": "bd6d2258-cc39-498a-b2ea-f3cf53405ad7",
+                    "id": "48d72a0e-27a7-4b87-8bdf-9869d6f3eb43",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -235,8 +235,30 @@
                 },
                 {
                     "name": "",
+                    "id": "727f11ad-1654-4347-961b-c835aa611ebb",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5a5c66a4-7d2b-41d0-8a8f-ad5ef489dd35",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "796d2ade-82cf-46b8-acc0-a6a19fb944f3",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -334,6 +356,17 @@
                 },
                 {
                     "name": "",
+                    "id": "13e10c1e-23e8-4936-aa51-970cafb4ca29",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractAlternate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1231af31-4cb7-4456-9f10-3ec691204e26",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -378,8 +411,30 @@
                 },
                 {
                     "name": "",
+                    "id": "f9e4596d-f494-4440-8f1f-edd8598d362b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "55a7ab9b-ec23-4dc5-999f-1ec30c7ca556",
                     "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubSkinSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c875a949-3a2f-45ce-99bb-c73157c02ca4",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -422,34 +477,12 @@
                 },
                 {
                     "name": "",
-                    "id": "71dcf69e-43cc-4547-be99-78f22782c56f",
-                    "path": "<Keyboard>/backspace",
+                    "id": "32afbbdd-dd91-48a8-9e62-cf087eb8706c",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause_2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ec55e693-afa9-4e66-99e6-bd9ccc93a720",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenRecipe",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "29da6103-260d-41b1-a306-0194e9f223ed",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenRecipe_2",
+                    "action": "SumSkinSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -483,6 +516,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "SubmitLeaderboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec55e693-afa9-4e66-99e6-bd9ccc93a720",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenRecipe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ce9950e-4d8a-4a57-b101-b742608b2781",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenRecipe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71dcf69e-43cc-4547-be99-78f22782c56f",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29da6103-260d-41b1-a306-0194e9f223ed",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenRecipe_2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

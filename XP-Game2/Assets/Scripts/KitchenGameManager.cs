@@ -39,6 +39,12 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private bool isPlayerReady;
     [SerializeField] private bool isPlayerTwoReady;
 
+    [Header("StepByStepTutorialUI")]
+    [SerializeField] private KitchenObjectSO acaiFruitKitchenObjectSO;
+    [SerializeField] private bool wasPlayerFirstInteractedAcaiFruit;
+    [SerializeField] private bool wasPlayerFirstInteractedBowl;
+    [SerializeField] private bool wasPlayerFirstInteractedFreezer;
+
 
     private float countdownToStartTimer = 3f;
     private bool isGamePaused = false;
@@ -238,5 +244,36 @@ public class KitchenGameManager : MonoBehaviour
     public void SetGamePlayingTimerMaxPlayerPrefs(float gamePlayingTimer)
     {
         PlayerPrefs.SetFloat(GAME_PLAYING_TIMER_MAX, gamePlayingTimer);
+    }
+
+    //StepByStepFunctions
+
+    public KitchenObjectSO GetAcaiFruitKitchenObjectSO()
+    {
+        return acaiFruitKitchenObjectSO;
+    }
+    public void SetWasPlayerFirstInteractedAcaiFruit(bool wasPlayerInteractedAcaiFruit)
+    {
+        this.wasPlayerFirstInteractedAcaiFruit = wasPlayerInteractedAcaiFruit;
+    }
+    public void SetWasPlayerFirstInteractedBowl(bool wasPlayerFirstInteractedBowl)
+    {
+        this.wasPlayerFirstInteractedBowl = wasPlayerFirstInteractedBowl;
+    }
+    public void SetWasPlayerFirstInteractedFreezer(bool wasPlayerFirstInteractedFreezer)
+    {
+        this.wasPlayerFirstInteractedFreezer = wasPlayerFirstInteractedFreezer;
+    }
+    public bool GetWasPlayerFirstInteractedAcaiFruit()
+    {
+        return wasPlayerFirstInteractedAcaiFruit;
+    }
+    public bool GetWasPlayerFirstInteractedBowl()
+    {
+        return wasPlayerFirstInteractedBowl;
+    }
+    public bool GetWasPlayerFirstInteractedFreezer()
+    {
+        return wasPlayerFirstInteractedFreezer;
     }
 }

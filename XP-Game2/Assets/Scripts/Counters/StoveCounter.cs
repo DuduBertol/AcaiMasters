@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class StoveCounter : BaseCounter, IHasProgress
 {
-    
+    public event EventHandler OnFirstInteractFreezer;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
     public class OnStateChangedEventArgs: EventArgs
@@ -134,6 +134,12 @@ public class StoveCounter : BaseCounter, IHasProgress
                         {
                             player.GetKitchenObject().SetKitchenObjectParent(this);
 
+                            if(!KitchenGameManager.Instance.GetWasPlayerFirstInteractedFreezer())
+                            {
+                                KitchenGameManager.Instance.SetWasPlayerFirstInteractedFreezer(true);
+                                OnFirstInteractFreezer?.Invoke(this, EventArgs.Empty);
+                            }
+
                             
                             fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
 
@@ -216,6 +222,11 @@ public class StoveCounter : BaseCounter, IHasProgress
                         {
                             playerTwo.GetKitchenObject().SetKitchenObjectParent(this);
 
+                            if(!KitchenGameManager.Instance.GetWasPlayerFirstInteractedFreezer())
+                            {
+                                KitchenGameManager.Instance.SetWasPlayerFirstInteractedFreezer(true);
+                                OnFirstInteractFreezer?.Invoke(this, EventArgs.Empty);
+                            }
                             
                             fryingRecipeSO = GetFryingRecipeSOWithInput(whichIsInPlateKitchenObject);
 

@@ -8,6 +8,7 @@ public class PlatesCounter : BaseCounter
 
     public event EventHandler OnPlateSpawned;
     public event EventHandler OnPlateRemoved;
+    public event EventHandler OnFirstPlateRemoved;
 
     [SerializeField] private KitchenObjectSO plateKitchenObjectSO;
     [SerializeField] private KitchenObjectSO firstStepKitchenObjectSO;
@@ -45,6 +46,12 @@ public class PlatesCounter : BaseCounter
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
 
                 OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+
+                if(KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit() && !KitchenGameManager.Instance.GetWasPlayerFirstInteractedBowl())
+                {
+                    KitchenGameManager.Instance.SetWasPlayerFirstInteractedBowl(true);
+                    OnFirstPlateRemoved?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
         
@@ -57,6 +64,12 @@ public class PlatesCounter : BaseCounter
                     //There's at least one plate here
                     platesSpawnedAmount--;
                     OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+
+                    if(KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit() && !KitchenGameManager.Instance.GetWasPlayerFirstInteractedBowl())
+                    {
+                        KitchenGameManager.Instance.SetWasPlayerFirstInteractedBowl(true);
+                        OnFirstPlateRemoved?.Invoke(this, EventArgs.Empty);
+                    }
 
                     player.GetKitchenObject().DestroySelf();
                     KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
@@ -83,6 +96,12 @@ public class PlatesCounter : BaseCounter
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, playerTwo);
 
                 OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+
+                if(KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit() && !KitchenGameManager.Instance.GetWasPlayerFirstInteractedBowl())
+                {
+                    KitchenGameManager.Instance.SetWasPlayerFirstInteractedBowl(true);
+                    OnFirstPlateRemoved?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
         if(playerTwo.HasKitchenObject())
@@ -94,6 +113,12 @@ public class PlatesCounter : BaseCounter
                     //There's at least one plate here
                     platesSpawnedAmount--;
                     OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+
+                    if(KitchenGameManager.Instance.GetWasPlayerFirstInteractedAcaiFruit() && !KitchenGameManager.Instance.GetWasPlayerFirstInteractedBowl())
+                    {
+                        KitchenGameManager.Instance.SetWasPlayerFirstInteractedBowl(true);
+                        OnFirstPlateRemoved?.Invoke(this, EventArgs.Empty);
+                    }
 
                     playerTwo.GetKitchenObject().DestroySelf();
                     KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, playerTwo);

@@ -42,11 +42,7 @@ public class GameInput : MonoBehaviour
         Interact_1,
         InteractAlternate_1,
         Dash_1,
-        Pause_1,
-        // Gamepad_Interact_1,
-        // Gamepad_InteractAlternate_1,
-        // Gamepad_Pause_1,
-        // Gamepad_Dash_1,
+        OpenRecipe_1,
 
         //Player 2
         Move_Up_2,
@@ -56,7 +52,7 @@ public class GameInput : MonoBehaviour
         Interact_2,
         InteractAlternate_2,
         Dash_2,
-        Pause_2,
+        OpenRecipe_2,
     }
 
 
@@ -229,16 +225,8 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
             case Binding.Dash_1:
                 return playerInputActions.Player.Dash.bindings[0].ToDisplayString();
-            case Binding.Pause_1:
-                return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
-            // case Binding.Gamepad_Interact_1:
-            //     return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
-            // case Binding.Gamepad_InteractAlternate_1:
-            //     return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
-            // case Binding.Gamepad_Dash_1:
-            //     return playerInputActions.Player.Dash.bindings[1].ToDisplayString();
-            // case Binding.Gamepad_Pause_1:
-            //     return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
+            case Binding.OpenRecipe_1:
+                return playerInputActions.Player.OpenRecipe.bindings[0].ToDisplayString();
 
             //Player 2
             case Binding.Move_Up_2:
@@ -255,8 +243,8 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.InteractAlternate_2.bindings[0].ToDisplayString();
             case Binding.Dash_2:
                 return playerInputActions.Player.Dash_2.bindings[0].ToDisplayString();
-            case Binding.Pause_2:
-                return playerInputActions.Player.Pause_2.bindings[0].ToDisplayString();
+            case Binding.OpenRecipe_2:
+                return playerInputActions.Player.OpenRecipe_2.bindings[0].ToDisplayString();
         }
     }
 
@@ -299,26 +287,10 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Dash;
                 bindingIndex = 0;
                 break;
-            case Binding.Pause_1:
-                inputAction = playerInputActions.Player.Pause;
+            case Binding.OpenRecipe_1:
+                inputAction = playerInputActions.Player.OpenRecipe;
                 bindingIndex = 0;
                 break;
-            // case Binding.Gamepad_Interact_1:
-            //     inputAction = playerInputActions.Player.Interact;
-            //     bindingIndex = 1;
-            //     break;
-            // case Binding.Gamepad_InteractAlternate_1:
-            //     inputAction = playerInputActions.Player.InteractAlternate;
-            //     bindingIndex = 1;
-            //     break;
-            // case Binding.Gamepad_Dash_1:
-            //     inputAction = playerInputActions.Player.Dash;
-            //     bindingIndex = 1;
-            //     break;
-            // case Binding.Gamepad_Pause_1:
-            //     inputAction = playerInputActions.Player.Pause;
-            //     bindingIndex = 1;
-            //     break;
 
             //Player 2
             case Binding.Move_Up_2:
@@ -349,8 +321,8 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Dash_2;
                 bindingIndex = 0;
                 break;
-            case Binding.Pause_2:
-                inputAction = playerInputActions.Player.Pause_2;
+            case Binding.OpenRecipe_2:
+                inputAction = playerInputActions.Player.OpenRecipe_2;
                 bindingIndex = 0;
                 break;
         }
